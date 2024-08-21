@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "D:\\Projects\\Personal\\HRIS\\HRIS.Server\\..\\hris.client",
+"WorkingDirectory": "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Server\\..\\hris.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
