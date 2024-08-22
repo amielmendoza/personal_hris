@@ -1,1 +1,2 @@
 D:\Projects\Personal\HRIS\hris.client\obj\Debug\hris.client.esproj.CoreCompileInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\hris.client\obj\Debug\hris.client.esproj.CoreCompileInputs.cache

@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|solutionrelative:hris.server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F8E45D4-7A1D-4A31-AA13-F71C39DF9E7C}|hris.client\\hris.client.esproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.client\\src\\proxy.conf.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0F8E45D4-7A1D-4A31-AA13-F71C39DF9E7C}|hris.client\\hris.client.esproj|solutionrelative:hris.client\\src\\proxy.conf.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.server\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|solutionrelative:hris.server\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.server\\hris.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|solutionrelative:hris.server\\hris.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.server\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|solutionrelative:hris.server\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F8E45D4-7A1D-4A31-AA13-F71C39DF9E7C}|hris.client\\hris.client.esproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.client\\src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{0F8E45D4-7A1D-4A31-AA13-F71C39DF9E7C}|hris.client\\hris.client.esproj|solutionrelative:hris.client\\src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F8E45D4-7A1D-4A31-AA13-F71C39DF9E7C}|hris.client\\hris.client.esproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.client\\src\\app\\app.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{0F8E45D4-7A1D-4A31-AA13-F71C39DF9E7C}|hris.client\\hris.client.esproj|solutionrelative:hris.client\\src\\app\\app.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.server\\controllers\\auth2controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|solutionrelative:hris.server\\controllers\\auth2controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|d:\\projects\\personal\\hris_latest\\personal_hris\\hris.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1063F8AF-0C12-4866-987A-0EBA4D9421DD}|HRIS.Server\\HRIS.Server.csproj|solutionrelative:hris.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HRIS.Server.http",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\HRIS.Server.http",
+              "RelativeDocumentMoniker": "HRIS.Server\\HRIS.Server.http",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\HRIS.Server.http",
+              "RelativeToolTip": "HRIS.Server\\HRIS.Server.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-08-22T16:01:28.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "proxy.conf.js",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\src\\proxy.conf.js",
+              "RelativeDocumentMoniker": "hris.client\\src\\proxy.conf.js",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\src\\proxy.conf.js",
+              "RelativeToolTip": "hris.client\\src\\proxy.conf.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-08-22T16:00:56.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "app.component.ts",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\src\\app\\app.component.ts",
+              "RelativeDocumentMoniker": "hris.client\\src\\app\\app.component.ts",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\src\\app\\app.component.ts",
+              "RelativeToolTip": "hris.client\\src\\app\\app.component.ts",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAEwBEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-08-22T16:00:38.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "app.component.spec.ts",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\src\\app\\app.component.spec.ts",
+              "RelativeDocumentMoniker": "hris.client\\src\\app\\app.component.spec.ts",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\src\\app\\app.component.spec.ts",
+              "RelativeToolTip": "hris.client\\src\\app\\app.component.spec.ts",
+              "ViewState": "AQIAABYAAAAAAAAAAAAlwCYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-08-22T16:00:33.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "HRIS.Server\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "HRIS.Server\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T15:49:27.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "HRIS.Server\\WeatherForecast.cs",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\WeatherForecast.cs",
+              "RelativeToolTip": "HRIS.Server\\WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T15:47:22.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "HRIS.Server\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "HRIS.Server\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAwwDIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T15:36:16.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Auth2Controller.cs",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Controllers\\Auth2Controller.cs",
+              "RelativeDocumentMoniker": "HRIS.Server\\Controllers\\Auth2Controller.cs",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Controllers\\Auth2Controller.cs",
+              "RelativeToolTip": "HRIS.Server\\Controllers\\Auth2Controller.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAwwEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T12:47:25.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Program.cs",
+              "RelativeDocumentMoniker": "HRIS.Server\\Program.cs",
+              "ToolTip": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\Program.cs",
+              "RelativeToolTip": "HRIS.Server\\Program.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAFMAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T16:02:00.267Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

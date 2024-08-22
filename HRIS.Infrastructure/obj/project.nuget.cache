@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KWlMjOSeg0g=",
+  "dgSpecHash": "T10mYuBAsaA=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj",
+  "projectFilePath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\amiel\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\amiel\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

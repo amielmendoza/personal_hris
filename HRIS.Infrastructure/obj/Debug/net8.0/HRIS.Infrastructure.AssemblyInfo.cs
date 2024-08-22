@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HRIS.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+368bff41e2be5be2616e785a37fd353df9e6cc76")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56a2e2787b4468b5829d50f6fc52789675ec0adf")]
 [assembly: System.Reflection.AssemblyProductAttribute("HRIS.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HRIS.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

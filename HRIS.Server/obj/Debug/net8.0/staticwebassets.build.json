@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "cxHLzJUkrXJ9pXcBXC3GahiDwdypO+UwLmTt5rLTBj0=",
+  "Hash": "X4wTuvtsPa16rrE6cF1FZa8iFXbPBvutOBYGx74wce0=",
   "Source": "HRIS.Server",
   "BasePath": "_content/HRIS.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "D:\\Projects\\Personal\\HRIS\\personal_hris\\hris.client\\hris.client.esproj",
+      "Identity": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\hris.client\\hris.client.esproj",
       "Version": 2,
       "Source": "hris.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

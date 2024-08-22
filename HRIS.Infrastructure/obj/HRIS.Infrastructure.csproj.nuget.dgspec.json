@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj": {}
+    "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj": {
+    "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj",
         "projectName": "HRIS.Infrastructure",
-        "projectPath": "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj",
+        "projectPath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Infrastructure\\HRIS.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\amiel\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Personal\\HRIS\\personal_hris\\HRIS.Infrastructure\\obj\\",
+        "outputPath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amiel\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\AdjustmentController.cs" />
     <Compile Remove="Controllers\ApiControllerBase.cs" />
+    <Compile Remove="Controllers\Auth2Controller.cs" />
     <Compile Remove="Controllers\EmployeeController.cs" />
     <Compile Remove="Controllers\HolidayController.cs" />
     <Compile Remove="Controllers\LeaveController.cs" />

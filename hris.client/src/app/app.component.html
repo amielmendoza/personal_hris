@@ -1,24 +1,29 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+﻿
+  <ng-container *ngIf="isAuthenticated; else loginPage">
+    <div class="side-bar-container">
+      <div class="side-bar-link-container">
+        <a href="#">Home</a>
+        <a href="#">Employee</a>
+        <a href="#">Profile</a>
+      </div>
+    </div>
+    <div class="page-content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-container>
 
-<p>This component demonstrates fetching data from the server.</p>
+  <ng-template #loginPage>
+    <!-- Login Page Layout -->
+    <app-login></app-login>
+  </ng-template>
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+  <!-- Page Content -->
+  <!-- <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+    </nav>
+    <div class="container-fluid">
+      <h1 class="mt-4">Page Content Here</h1>
+      <p>This is the main content area.</p>
+    </div>
+  </div> -->

@@ -1,0 +1,23 @@
+:host {
+  display:flex;
+  width: 100%;
+justify-content: center;
+  .login-container {
+    display:flex;
+    align-items: center;
+    height: 100vh;
+  }
+}
+
+.card {
+  width: 30rem;
+  border-radius: 0.5rem;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+}
+
+button {
+  border-radius: 0.25rem;
+}
