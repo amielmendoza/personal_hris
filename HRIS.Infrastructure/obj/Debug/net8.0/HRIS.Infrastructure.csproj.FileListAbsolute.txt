@@ -24,3 +24,8 @@ D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Debug\net
 D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Debug\net8.0\refint\HRIS.Infrastructure.dll
 D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Debug\net8.0\HRIS.Infrastructure.pdb
 D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Debug\net8.0\ref\HRIS.Infrastructure.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\bin\Debug\net8.0\HRIS.Domain.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\bin\Debug\net8.0\HRIS.Domain.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Debug\net8.0\HRIS.Inf.894367AA.Up2Date
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\bin\Debug\net8.0\HRIS.Infrastructure.runtimeconfig.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Debug\net8.0\HRIS.Infrastructure.genruntimeconfig.cache

@@ -1,0 +1,12 @@
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\bin\Debug\net8.0\HRIS.Domain.deps.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\bin\Debug\net8.0\HRIS.Domain.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\bin\Debug\net8.0\HRIS.Domain.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.AssemblyInfoInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.AssemblyInfo.cs
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.sourcelink.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\refint\HRIS.Domain.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\HRIS.Domain.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Domain\obj\Debug\net8.0\ref\HRIS.Domain.dll

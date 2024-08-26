@@ -1637,11 +1637,23 @@
           }
         }
       },
+      "HRIS.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/HRIS.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HRIS.Domain.dll": {}
+        }
+      },
       "HRIS.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "HRIS.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
         "compile": {
@@ -4410,6 +4422,11 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "HRIS.Domain/1.0.0": {
+      "type": "project",
+      "path": "../HRIS.Domain/HRIS.Domain.csproj",
+      "msbuildProject": "../HRIS.Domain/HRIS.Domain.csproj"
     },
     "HRIS.Infrastructure/1.0.0": {
       "type": "project",
