@@ -1,0 +1,13 @@
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\bin\Release\net8.0\HRIS.Infrastructure.deps.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\bin\Release\net8.0\HRIS.Infrastructure.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\bin\Release\net8.0\HRIS.Infrastructure.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.AssemblyInfo.cs
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.sourcelink.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\refint\HRIS.Infrastructure.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\HRIS.Infrastructure.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Infrastructure\obj\Release\net8.0\ref\HRIS.Infrastructure.dll

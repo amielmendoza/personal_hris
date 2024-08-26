@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HRIS.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+371c00edd35910e10fb0aec04b9f046d644bdcf6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30a9e986232ae3033f89ec1b3a844e93d8d54099")]
 [assembly: System.Reflection.AssemblyProductAttribute("HRIS.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HRIS.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
