@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LYmTkJBu3Jc=",
+  "dgSpecHash": "cjyREX9dIxM=",
   "success": true,
   "projectFilePath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Server\\HRIS.Server.csproj",
   "expectedPackageFiles": [
@@ -44,7 +44,7 @@
     "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.2\\microsoft.identitymodel.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.2\\microsoft.identitymodel.jsonwebtokens.8.0.2.nupkg.sha512",
     "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.2\\microsoft.identitymodel.logging.8.0.2.nupkg.sha512",
-    "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.protocols\\7.1.2\\microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+    "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.2\\microsoft.identitymodel.protocols.8.0.2.nupkg.sha512",
     "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.1.2\\microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
     "C:\\Users\\amiel\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.2\\microsoft.identitymodel.tokens.8.0.2.nupkg.sha512",
     "C:\\Users\\amiel\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

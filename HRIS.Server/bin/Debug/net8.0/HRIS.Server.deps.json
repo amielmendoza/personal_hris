@@ -14,6 +14,7 @@
           "Microsoft.AspNetCore.SpaProxy": "8.0.8",
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "Microsoft.IdentityModel.Protocols": "8.0.2",
           "Swashbuckle.AspNetCore": "6.4.0",
           "System.IdentityModel.Tokens.Jwt": "8.0.2"
         },
@@ -608,21 +609,20 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Protocols/7.1.2": {
+      "Microsoft.IdentityModel.Protocols/8.0.2": {
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "8.0.2",
           "Microsoft.IdentityModel.Tokens": "8.0.2"
         },
         "runtime": {
           "lib/net8.0/Microsoft.IdentityModel.Protocols.dll": {
-            "assemblyVersion": "7.1.2.0",
-            "fileVersion": "7.1.2.41121"
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.2.50822"
           }
         }
       },
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.1.2": {
         "dependencies": {
-          "Microsoft.IdentityModel.Protocols": "7.1.2",
+          "Microsoft.IdentityModel.Protocols": "8.0.2",
           "System.IdentityModel.Tokens.Jwt": "8.0.2"
         },
         "runtime": {
@@ -1275,12 +1275,12 @@
       "path": "microsoft.identitymodel.logging/8.0.2",
       "hashPath": "microsoft.identitymodel.logging.8.0.2.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.Protocols/7.1.2": {
+    "Microsoft.IdentityModel.Protocols/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SydLwMRFx6EHPWJ+N6+MVaoArN1Htt92b935O3RUWPY1yUF63zEjvd3lBu79eWdZUwedP8TN2I5V9T3nackvIQ==",
-      "path": "microsoft.identitymodel.protocols/7.1.2",
-      "hashPath": "microsoft.identitymodel.protocols.7.1.2.nupkg.sha512"
+      "sha512": "sha512-l6W99hw88Kd+2m7N7WMzo/PxiHRI6TD8hsWs2XlbEs6BWgRtLAeyNlASst1QOznDvQa2kPl9nMpvgo5Hbo7gsQ==",
+      "path": "microsoft.identitymodel.protocols/8.0.2",
+      "hashPath": "microsoft.identitymodel.protocols.8.0.2.nupkg.sha512"
     },
     "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.1.2": {
       "type": "package",
