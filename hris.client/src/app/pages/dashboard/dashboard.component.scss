@@ -2,13 +2,18 @@
   display: flex;
 }
 .side-bar-container {
-  min-height: 100vh;
-  width: 250px;
-  background-color: red;
-
-  .side-bar-link-container {
-    display: flex;
-    flex-direction: column;
+  // .side-bar-link-container {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  i {
+    font-size: 21px;
+    padding-right: 10px;
+    width: 30px;
+    &.header {
+      font-size: 40px;
+      width: 50px;
+    }
   }
 }
 
