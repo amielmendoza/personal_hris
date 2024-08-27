@@ -13,11 +13,22 @@ export class AuthService {
     let parameter = {"Username": email, "Password": password};
     return this.http.post('/auth/login', parameter).pipe(
       map(response => {
-        return true;
+        return response;
       },
       catchError(error => {
         throw new Error('Invalid credentials');
       })
     ));
+  }
+
+  validate(token: string): Promise<boolean> {
+    // Replace with actual login logic, such as an HTTP request
+    let parameter = {"token": token};
+    return this.http.post('/auth/validate?token='+token, null).toPromise().then(response => {
+        return !!response;
+    }).catch(error=>{
+      console.error('Error validating token.', error);
+      return false;
+    });
   }
 }

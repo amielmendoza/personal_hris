@@ -1,3 +1,4 @@
+using HRIS.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -77,6 +78,22 @@ namespace HRIS.Server.Controllers
                 });
             }
             return Unauthorized();
+        }
+
+        [HttpPost("validate")]
+        public async Task<IActionResult> Validate(string token)
+        {
+            var validator = new JwtTokenValidator(_configuration);
+            var principal = validator.ValidateToken(token);
+
+            if (principal != null)
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return Ok(false);
+            }
         }
     }
 }
