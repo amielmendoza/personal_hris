@@ -1,9 +1,11 @@
 :host {
-  display:flex;
+  display: flex;
   width: 100%;
-justify-content: center;
+  justify-content: center;
+  background-image: url("/assets/images/login.jpg");
+  background-size: cover;
   .login-container {
-    display:flex;
+    display: flex;
     align-items: center;
     height: 100vh;
   }

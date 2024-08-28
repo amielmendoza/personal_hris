@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Home",
+    "link": "home",
+    "icon": "fa-solid fa-house fa-bounce"
+  },
+  {
+    "name": "Employees",
+    "link": "employees",
+    "icon": "fa-solid fa-user-tie"
+  }
+]

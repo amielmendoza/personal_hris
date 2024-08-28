@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
       let token = localStorage.getItem("authToken");
 
       if(!!token)
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/home']);
   }
 
   onSubmit(){
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         if (response) {
           localStorage.setItem("authToken", response.token);
-          this.router.navigate(['/dashboard']); // Redirect to dashboard or any other route after successful login
+          this.router.navigate(['/dashboard/home']); // Redirect to dashboard or any other route after successful login
         } else {
           this.isError = true; // Show error message on failed login
         }
