@@ -1,0 +1,1337 @@
+<div class="d-flex flex-row-reverse">
+  <button type="button" class="btn btn-primary btn-fab" (click)="exitForm()">
+    <i class="bi bi-dash-lg"></i>
+    <!-- Bootstrap Icon (optional) -->
+  </button>
+</div>
+<div class="container mt-5">
+  <div class="stepper">
+    <!-- Progress Bar -->
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        [style.width.%]="progressPercentage"
+        [attr.aria-valuenow]="progressPercentage"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+
+    <!-- Stepper Content -->
+    <div class="stepper-body">
+      <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()" noValidate>
+        <!-- STEP 1 -->
+        <ng-container *ngIf="currentStep === 0">
+          <h3>Personal Information</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                id="firstName"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="firstName"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('firstName')?.dirty &&
+                      myFormGroup.get('firstName')?.invalid) ||
+                    (myFormGroup.get('firstName')?.touched &&
+                      myFormGroup.get('firstName')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('firstName')?.dirty &&
+                      myFormGroup.get('firstName')?.valid) ||
+                    (myFormGroup.get('firstName')?.touched &&
+                      myFormGroup.get('firstName')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('firstName')?.dirty &&
+                    myFormGroup.get('firstName')?.invalid) ||
+                  (myFormGroup.get('firstName')?.touched &&
+                    myFormGroup.get('firstName')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                First Name is required.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="middleName" class="form-label">Middle Name</label>
+              <input
+                id="middleName"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="middleName"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('middleName')?.dirty &&
+                      myFormGroup.get('middleName')?.invalid) ||
+                    (myFormGroup.get('middleName')?.touched &&
+                      myFormGroup.get('middleName')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('middleName')?.dirty &&
+                      myFormGroup.get('middleName')?.valid) ||
+                    (myFormGroup.get('middleName')?.touched &&
+                      myFormGroup.get('middleName')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('middleName')?.dirty &&
+                    myFormGroup.get('middleName')?.invalid) ||
+                  (myFormGroup.get('middleName')?.touched &&
+                    myFormGroup.get('middleName')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Middle Name is required.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                id="lastName"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="lastName"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('lastName')?.dirty &&
+                      myFormGroup.get('lastName')?.invalid) ||
+                    (myFormGroup.get('lastName')?.touched &&
+                      myFormGroup.get('lastName')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('lastName')?.dirty &&
+                      myFormGroup.get('lastName')?.valid) ||
+                    (myFormGroup.get('lastName')?.touched &&
+                      myFormGroup.get('lastName')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('lastName')?.dirty &&
+                    myFormGroup.get('lastName')?.invalid) ||
+                  (myFormGroup.get('lastName')?.touched &&
+                    myFormGroup.get('lastName')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Last Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 form-input">
+              <div>
+                <label class="form-label">Gender</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="male"
+                    value="male"
+                    checked
+                  />
+                  <span class="form-check-label" for="male"> Male </span>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                  />
+                  <span class="form-check-label" for="female"> Female </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div>
+                <label class="form-label">Marital Status</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="status"
+                    id="single"
+                    value="single"
+                    checked
+                  />
+                  <span class="form-check-label" for="single"> Single </span>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="status"
+                    id="married"
+                    value="married"
+                  />
+                  <span class="form-check-label" for="married"> Married </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label for="birthDate" class="form-label">Birth Date</label>
+              <input
+                id="birthDate"
+                type="date"
+                class="form-control form-control-sm"
+                formControlName="birthDate"
+                ngbDatepicker
+                #d="ngbDatepicker"
+                (click)="d.toggle()"
+                readonly
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('birthDate')?.dirty &&
+                      myFormGroup.get('birthDate')?.invalid) ||
+                    (myFormGroup.get('birthDate')?.touched &&
+                      myFormGroup.get('birthDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('birthDate')?.dirty &&
+                      myFormGroup.get('birthDate')?.valid) ||
+                    (myFormGroup.get('birthDate')?.touched &&
+                      myFormGroup.get('birthDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('birthDate')?.dirty &&
+                    myFormGroup.get('birthDate')?.invalid) ||
+                  (myFormGroup.get('birthDate')?.touched &&
+                    myFormGroup.get('birthDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Birth Date is required.
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label for="birthPlace" class="form-label">Birth Place</label>
+              <input
+                id="birthPlace"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="birthPlace"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('birthPlace')?.dirty &&
+                      myFormGroup.get('birthPlace')?.invalid) ||
+                    (myFormGroup.get('birthPlace')?.touched &&
+                      myFormGroup.get('birthPlace')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('birthPlace')?.dirty &&
+                      myFormGroup.get('birthPlace')?.valid) ||
+                    (myFormGroup.get('birthPlace')?.touched &&
+                      myFormGroup.get('birthPlace')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('birthPlace')?.dirty &&
+                    myFormGroup.get('birthPlace')?.invalid) ||
+                  (myFormGroup.get('birthPlace')?.touched &&
+                    myFormGroup.get('birthPlace')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Birth Place is required.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="mothersMaidenName" class="form-label"
+                >Mother's Maiden Name</label
+              >
+              <input
+                id="mothersMaidenName"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="mothersMaidenName"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('mothersMaidenName')?.dirty &&
+                      myFormGroup.get('mothersMaidenName')?.invalid) ||
+                    (myFormGroup.get('mothersMaidenName')?.touched &&
+                      myFormGroup.get('mothersMaidenName')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('mothersMaidenName')?.dirty &&
+                      myFormGroup.get('mothersMaidenName')?.valid) ||
+                    (myFormGroup.get('mothersMaidenName')?.touched &&
+                      myFormGroup.get('mothersMaidenName')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('mothersMaidenName')?.dirty &&
+                    myFormGroup.get('mothersMaidenName')?.invalid) ||
+                  (myFormGroup.get('mothersMaidenName')?.touched &&
+                    myFormGroup.get('mothersMaidenName')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Mother's Maiden Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <label for="address" class="form-label">Address</label>
+              <input
+                id="address"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="address"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('address')?.dirty &&
+                      myFormGroup.get('address')?.invalid) ||
+                    (myFormGroup.get('address')?.touched &&
+                      myFormGroup.get('address')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('address')?.dirty &&
+                      myFormGroup.get('address')?.valid) ||
+                    (myFormGroup.get('address')?.touched &&
+                      myFormGroup.get('address')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('address')?.dirty &&
+                    myFormGroup.get('address')?.invalid) ||
+                  (myFormGroup.get('address')?.touched &&
+                    myFormGroup.get('address')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Address is required.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="contactNo" class="form-label">Contact Number</label>
+              <input
+                id="contactNo"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="contactNo"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('contactNo')?.dirty &&
+                      myFormGroup.get('contactNo')?.invalid) ||
+                    (myFormGroup.get('contactNo')?.touched &&
+                      myFormGroup.get('contactNo')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('contactNo')?.dirty &&
+                      myFormGroup.get('contactNo')?.valid) ||
+                    (myFormGroup.get('contactNo')?.touched &&
+                      myFormGroup.get('contactNo')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('contactNo')?.dirty &&
+                    myFormGroup.get('contactNo')?.invalid) ||
+                  (myFormGroup.get('contactNo')?.touched &&
+                    myFormGroup.get('contactNo')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Contact Number is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="emailAddress" class="form-label">Email Address</label>
+              <input
+                id="emailAddress"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="emailAddress"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('emailAddress')?.dirty &&
+                      myFormGroup.get('emailAddress')?.invalid) ||
+                    (myFormGroup.get('emailAddress')?.touched &&
+                      myFormGroup.get('emailAddress')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('emailAddress')?.dirty &&
+                      myFormGroup.get('emailAddress')?.valid) ||
+                    (myFormGroup.get('emailAddress')?.touched &&
+                      myFormGroup.get('emailAddress')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('emailAddress')?.dirty &&
+                    myFormGroup.get('emailAddress')?.invalid) ||
+                  (myFormGroup.get('emailAddress')?.touched &&
+                    myFormGroup.get('emailAddress')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Email Address is required.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="emergencyContactPerson" class="form-label"
+                >Emergency Contact Person</label
+              >
+              <input
+                id="emergencyContactPerson"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="emergencyContactPerson"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('emergencyContactPerson')?.dirty &&
+                      myFormGroup.get('emergencyContactPerson')?.invalid) ||
+                    (myFormGroup.get('emergencyContactPerson')?.touched &&
+                      myFormGroup.get('emergencyContactPerson')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('emergencyContactPerson')?.dirty &&
+                      myFormGroup.get('emergencyContactPerson')?.valid) ||
+                    (myFormGroup.get('emergencyContactPerson')?.touched &&
+                      myFormGroup.get('emergencyContactPerson')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('emergencyContactPerson')?.dirty &&
+                    myFormGroup.get('emergencyContactPerson')?.invalid) ||
+                  (myFormGroup.get('emergencyContactPerson')?.touched &&
+                    myFormGroup.get('emergencyContactPerson')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Emergency Contact Person is required.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="emergencyContactNumber" class="form-label"
+                >Emergency Contact Number</label
+              >
+              <input
+                id="emergencyContactNumber"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="emergencyContactNumber"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('emergencyContactNumber')?.dirty &&
+                      myFormGroup.get('emergencyContactNumber')?.invalid) ||
+                    (myFormGroup.get('emergencyContactNumber')?.touched &&
+                      myFormGroup.get('emergencyContactNumber')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('emergencyContactNumber')?.dirty &&
+                      myFormGroup.get('emergencyContactNumber')?.valid) ||
+                    (myFormGroup.get('emergencyContactNumber')?.touched &&
+                      myFormGroup.get('emergencyContactNumber')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('emergencyContactNumber')?.dirty &&
+                    myFormGroup.get('emergencyContactNumber')?.invalid) ||
+                  (myFormGroup.get('emergencyContactNumber')?.touched &&
+                    myFormGroup.get('emergencyContactNumber')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Emergency Contact Number is required.
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <!-- STEP 2 -->
+        <ng-container *ngIf="currentStep === 1">
+          <h3>Employment Information</h3>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="employeeNumber" class="form-label"
+                >Employee Number</label
+              >
+              <input
+                id="employeeNumber"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="employeeNumber"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('employeeNumber')?.dirty &&
+                      myFormGroup.get('employeeNumber')?.invalid) ||
+                    (myFormGroup.get('employeeNumber')?.touched &&
+                      myFormGroup.get('employeeNumber')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('employeeNumber')?.dirty &&
+                      myFormGroup.get('employeeNumber')?.valid) ||
+                    (myFormGroup.get('employeeNumber')?.touched &&
+                      myFormGroup.get('employeeNumber')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('employeeNumber')?.dirty &&
+                    myFormGroup.get('employeeNumber')?.invalid) ||
+                  (myFormGroup.get('employeeNumber')?.touched &&
+                    myFormGroup.get('employeeNumber')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Employee Number is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="hiringDate" class="form-label">Hiring Date</label>
+              <input
+                id="hiringDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="hiringDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('hiringDate')?.dirty &&
+                      myFormGroup.get('hiringDate')?.invalid) ||
+                    (myFormGroup.get('hiringDate')?.touched &&
+                      myFormGroup.get('hiringDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('hiringDate')?.dirty &&
+                      myFormGroup.get('hiringDate')?.valid) ||
+                    (myFormGroup.get('hiringDate')?.touched &&
+                      myFormGroup.get('hiringDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('hiringDate')?.dirty &&
+                    myFormGroup.get('hiringDate')?.invalid) ||
+                  (myFormGroup.get('hiringDate')?.touched &&
+                    myFormGroup.get('hiringDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Hiring Date is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="site" class="form-label">Site</label>
+              <input
+                id="site"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="site"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('site')?.dirty &&
+                      myFormGroup.get('site')?.invalid) ||
+                    (myFormGroup.get('site')?.touched &&
+                      myFormGroup.get('site')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('site')?.dirty &&
+                      myFormGroup.get('site')?.valid) ||
+                    (myFormGroup.get('site')?.touched &&
+                      myFormGroup.get('site')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('site')?.dirty &&
+                    myFormGroup.get('site')?.invalid) ||
+                  (myFormGroup.get('site')?.touched &&
+                    myFormGroup.get('site')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Site is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="department" class="form-label">Department</label>
+              <input
+                id="department"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="department"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('department')?.dirty &&
+                      myFormGroup.get('department')?.invalid) ||
+                    (myFormGroup.get('department')?.touched &&
+                      myFormGroup.get('department')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('department')?.dirty &&
+                      myFormGroup.get('department')?.valid) ||
+                    (myFormGroup.get('department')?.touched &&
+                      myFormGroup.get('department')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('department')?.dirty &&
+                    myFormGroup.get('department')?.invalid) ||
+                  (myFormGroup.get('department')?.touched &&
+                    myFormGroup.get('department')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Department is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="position" class="form-label">Position</label>
+              <input
+                id="position"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="position"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('position')?.dirty &&
+                      myFormGroup.get('position')?.invalid) ||
+                    (myFormGroup.get('position')?.touched &&
+                      myFormGroup.get('position')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('position')?.dirty &&
+                      myFormGroup.get('position')?.valid) ||
+                    (myFormGroup.get('position')?.touched &&
+                      myFormGroup.get('position')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('position')?.dirty &&
+                    myFormGroup.get('position')?.invalid) ||
+                  (myFormGroup.get('position')?.touched &&
+                    myFormGroup.get('position')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Position is required.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="employmentStatus" class="form-label"
+                >Employment Status</label
+              >
+              <input
+                id="employmentStatus"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="employmentStatus"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('employmentStatus')?.dirty &&
+                      myFormGroup.get('employmentStatus')?.invalid) ||
+                    (myFormGroup.get('employmentStatus')?.touched &&
+                      myFormGroup.get('employmentStatus')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('employmentStatus')?.dirty &&
+                      myFormGroup.get('employmentStatus')?.valid) ||
+                    (myFormGroup.get('employmentStatus')?.touched &&
+                      myFormGroup.get('employmentStatus')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('employmentStatus')?.dirty &&
+                    myFormGroup.get('employmentStatus')?.invalid) ||
+                  (myFormGroup.get('employmentStatus')?.touched &&
+                    myFormGroup.get('employmentStatus')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Employment Status is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="contractEndDate" class="form-label"
+                >Contract End Date</label
+              >
+              <input
+                id="contractEndDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="contractEndDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('contractEndDate')?.dirty &&
+                      myFormGroup.get('contractEndDate')?.invalid) ||
+                    (myFormGroup.get('contractEndDate')?.touched &&
+                      myFormGroup.get('contractEndDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('contractEndDate')?.dirty &&
+                      myFormGroup.get('contractEndDate')?.valid) ||
+                    (myFormGroup.get('contractEndDate')?.touched &&
+                      myFormGroup.get('contractEndDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('contractEndDate')?.dirty &&
+                    myFormGroup.get('contractEndDate')?.invalid) ||
+                  (myFormGroup.get('contractEndDate')?.touched &&
+                    myFormGroup.get('contractEndDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Contract End Date is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="dailyRate" class="form-label">Daily Rate</label>
+              <input
+                id="dailyRate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="dailyRate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('dailyRate')?.dirty &&
+                      myFormGroup.get('dailyRate')?.invalid) ||
+                    (myFormGroup.get('dailyRate')?.touched &&
+                      myFormGroup.get('dailyRate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('dailyRate')?.dirty &&
+                      myFormGroup.get('dailyRate')?.valid) ||
+                    (myFormGroup.get('dailyRate')?.touched &&
+                      myFormGroup.get('dailyRate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('dailyRate')?.dirty &&
+                    myFormGroup.get('dailyRate')?.invalid) ||
+                  (myFormGroup.get('dailyRate')?.touched &&
+                    myFormGroup.get('dailyRate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Daily Rate is required.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="monthlyRate" class="form-label">Monthly Rate</label>
+              <input
+                id="monthlyRate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="monthlyRate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('monthlyRate')?.dirty &&
+                      myFormGroup.get('monthlyRate')?.invalid) ||
+                    (myFormGroup.get('monthlyRate')?.touched &&
+                      myFormGroup.get('monthlyRate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('monthlyRate')?.dirty &&
+                      myFormGroup.get('monthlyRate')?.valid) ||
+                    (myFormGroup.get('monthlyRate')?.touched &&
+                      myFormGroup.get('monthlyRate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('monthlyRate')?.dirty &&
+                    myFormGroup.get('monthlyRate')?.invalid) ||
+                  (myFormGroup.get('monthlyRate')?.touched &&
+                    myFormGroup.get('monthlyRate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Monthly Rate is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="allowance" class="form-label">Allowance</label>
+              <input
+                id="allowance"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="allowance"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('allowance')?.dirty &&
+                      myFormGroup.get('allowance')?.invalid) ||
+                    (myFormGroup.get('allowance')?.touched &&
+                      myFormGroup.get('allowance')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('allowance')?.dirty &&
+                      myFormGroup.get('allowance')?.valid) ||
+                    (myFormGroup.get('allowance')?.touched &&
+                      myFormGroup.get('allowance')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('allowance')?.dirty &&
+                    myFormGroup.get('allowance')?.invalid) ||
+                  (myFormGroup.get('allowance')?.touched &&
+                    myFormGroup.get('allowance')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Allowance is required.
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <!-- STEP 3 -->
+        <ng-container *ngIf="currentStep === 2">
+          <h3>Document Information</h3>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="bankAccountNumber" class="form-label"
+                >Bank Account Number</label
+              >
+              <input
+                id="bankAccountNumber"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="bankAccountNumber"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('bankAccountNumber')?.dirty &&
+                      myFormGroup.get('bankAccountNumber')?.invalid) ||
+                    (myFormGroup.get('bankAccountNumber')?.touched &&
+                      myFormGroup.get('bankAccountNumber')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('bankAccountNumber')?.dirty &&
+                      myFormGroup.get('bankAccountNumber')?.valid) ||
+                    (myFormGroup.get('bankAccountNumber')?.touched &&
+                      myFormGroup.get('bankAccountNumber')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('bankAccountNumber')?.dirty &&
+                    myFormGroup.get('bankAccountNumber')?.invalid) ||
+                  (myFormGroup.get('bankAccountNumber')?.touched &&
+                    myFormGroup.get('bankAccountNumber')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Bank Account Number is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="birthCertificate" class="form-label"
+                >Birth Certificate</label
+              >
+              <input
+                id="birthCertificate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="birthCertificate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('birthCertificate')?.dirty &&
+                      myFormGroup.get('birthCertificate')?.invalid) ||
+                    (myFormGroup.get('birthCertificate')?.touched &&
+                      myFormGroup.get('birthCertificate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('birthCertificate')?.dirty &&
+                      myFormGroup.get('birthCertificate')?.valid) ||
+                    (myFormGroup.get('birthCertificate')?.touched &&
+                      myFormGroup.get('birthCertificate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('birthCertificate')?.dirty &&
+                    myFormGroup.get('birthCertificate')?.invalid) ||
+                  (myFormGroup.get('birthCertificate')?.touched &&
+                    myFormGroup.get('birthCertificate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Birth Certificate is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="swabTestResultDate" class="form-label"
+                >Swab Test Result Date</label
+              >
+              <input
+                id="swabTestResultDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="swabTestResultDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('swabTestResultDate')?.dirty &&
+                      myFormGroup.get('swabTestResultDate')?.invalid) ||
+                    (myFormGroup.get('swabTestResultDate')?.touched &&
+                      myFormGroup.get('swabTestResultDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('swabTestResultDate')?.dirty &&
+                      myFormGroup.get('swabTestResultDate')?.valid) ||
+                    (myFormGroup.get('swabTestResultDate')?.touched &&
+                      myFormGroup.get('swabTestResultDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('swabTestResultDate')?.dirty &&
+                    myFormGroup.get('swabTestResultDate')?.invalid) ||
+                  (myFormGroup.get('swabTestResultDate')?.touched &&
+                    myFormGroup.get('swabTestResultDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Swab Test Result Date is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="sss" class="form-label">SSS</label>
+              <input
+                id="sss"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="sss"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('sss')?.dirty &&
+                      myFormGroup.get('sss')?.invalid) ||
+                    (myFormGroup.get('sss')?.touched &&
+                      myFormGroup.get('sss')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('sss')?.dirty &&
+                      myFormGroup.get('sss')?.valid) ||
+                    (myFormGroup.get('sss')?.touched &&
+                      myFormGroup.get('sss')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('sss')?.dirty &&
+                    myFormGroup.get('sss')?.invalid) ||
+                  (myFormGroup.get('sss')?.touched &&
+                    myFormGroup.get('sss')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                SSS is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="numberOfDependents" class="form-label"
+                >Number of dependents</label
+              >
+              <input
+                id="numberOfDependents"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="numberOfDependents"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('numberOfDependents')?.dirty &&
+                      myFormGroup.get('numberOfDependents')?.invalid) ||
+                    (myFormGroup.get('numberOfDependents')?.touched &&
+                      myFormGroup.get('numberOfDependents')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('numberOfDependents')?.dirty &&
+                      myFormGroup.get('numberOfDependents')?.valid) ||
+                    (myFormGroup.get('numberOfDependents')?.touched &&
+                      myFormGroup.get('numberOfDependents')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('numberOfDependents')?.dirty &&
+                    myFormGroup.get('numberOfDependents')?.invalid) ||
+                  (myFormGroup.get('numberOfDependents')?.touched &&
+                    myFormGroup.get('numberOfDependents')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Number of dependents is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="insurance" class="form-label"
+                >Insurance</label
+              >
+              <input
+                id="insurance"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="insurance"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('insurance')?.dirty &&
+                      myFormGroup.get('insurance')?.invalid) ||
+                    (myFormGroup.get('insurance')?.touched &&
+                      myFormGroup.get('insurance')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('insurance')?.dirty &&
+                      myFormGroup.get('insurance')?.valid) ||
+                    (myFormGroup.get('insurance')?.touched &&
+                      myFormGroup.get('insurance')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('insurance')?.dirty &&
+                    myFormGroup.get('insurance')?.invalid) ||
+                  (myFormGroup.get('insurance')?.touched &&
+                    myFormGroup.get('insurance')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Insurance is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="tin" class="form-label"
+                >TIN</label
+              >
+              <input
+                id="tin"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="tin"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('tin')?.dirty &&
+                      myFormGroup.get('tin')?.invalid) ||
+                    (myFormGroup.get('tin')?.touched &&
+                      myFormGroup.get('tin')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('tin')?.dirty &&
+                      myFormGroup.get('tin')?.valid) ||
+                    (myFormGroup.get('tin')?.touched &&
+                      myFormGroup.get('tin')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('tin')?.dirty &&
+                    myFormGroup.get('tin')?.invalid) ||
+                  (myFormGroup.get('tin')?.touched &&
+                    myFormGroup.get('tin')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                TIN is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="phic" class="form-label"
+                >PHIC</label
+              >
+              <input
+                id="phic"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="phic"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('phic')?.dirty &&
+                      myFormGroup.get('phic')?.invalid) ||
+                    (myFormGroup.get('phic')?.touched &&
+                      myFormGroup.get('phic')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('phic')?.dirty &&
+                      myFormGroup.get('phic')?.valid) ||
+                    (myFormGroup.get('phic')?.touched &&
+                      myFormGroup.get('phic')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('phic')?.dirty &&
+                    myFormGroup.get('phic')?.invalid) ||
+                  (myFormGroup.get('phic')?.touched &&
+                    myFormGroup.get('phic')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                PHIC is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="hdmf" class="form-label"
+                >HDMF</label
+              >
+              <input
+                id="hdmf"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="hdmf"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('hdmf')?.dirty &&
+                      myFormGroup.get('hdmf')?.invalid) ||
+                    (myFormGroup.get('hdmf')?.touched &&
+                      myFormGroup.get('hdmf')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('hdmf')?.dirty &&
+                      myFormGroup.get('hdmf')?.valid) ||
+                    (myFormGroup.get('hdmf')?.touched &&
+                      myFormGroup.get('hdmf')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('hdmf')?.dirty &&
+                    myFormGroup.get('hdmf')?.invalid) ||
+                  (myFormGroup.get('hdmf')?.touched &&
+                    myFormGroup.get('hdmf')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                HDMF is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="nbiIssueDate" class="form-label">NBI Issue Date</label>
+              <input
+                id="nbiIssueDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="nbiIssueDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('nbiIssueDate')?.dirty &&
+                      myFormGroup.get('nbiIssueDate')?.invalid) ||
+                    (myFormGroup.get('nbiIssueDate')?.touched &&
+                      myFormGroup.get('nbiIssueDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('nbiIssueDate')?.dirty &&
+                      myFormGroup.get('nbiIssueDate')?.valid) ||
+                    (myFormGroup.get('nbiIssueDate')?.touched &&
+                      myFormGroup.get('nbiIssueDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('nbiIssueDate')?.dirty &&
+                    myFormGroup.get('nbiIssueDate')?.invalid) ||
+                  (myFormGroup.get('nbiIssueDate')?.touched &&
+                    myFormGroup.get('nbiIssueDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                NBI Issue Date is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="brgyClearanceIssueDate" class="form-label"
+                >Brgy. Clearance Issue Date</label
+              >
+              <input
+                id="brgyClearanceIssueDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="brgyClearanceIssueDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('brgyClearanceIssueDate')?.dirty &&
+                      myFormGroup.get('brgyClearanceIssueDate')?.invalid) ||
+                    (myFormGroup.get('brgyClearanceIssueDate')?.touched &&
+                      myFormGroup.get('brgyClearanceIssueDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('brgyClearanceIssueDate')?.dirty &&
+                      myFormGroup.get('brgyClearanceIssueDate')?.valid) ||
+                    (myFormGroup.get('brgyClearanceIssueDate')?.touched &&
+                      myFormGroup.get('brgyClearanceIssueDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('brgyClearanceIssueDate')?.dirty &&
+                    myFormGroup.get('brgyClearanceIssueDate')?.invalid) ||
+                  (myFormGroup.get('brgyClearanceIssueDate')?.touched &&
+                    myFormGroup.get('brgyClearanceIssueDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Brgy. Clearance Issue Date is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="policeClearanceIssueDate" class="form-label"
+                >Police Clearance Issue Date</label
+              >
+              <input
+                id="policeClearanceIssueDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="policeClearanceIssueDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('policeClearanceIssueDate')?.dirty &&
+                      myFormGroup.get('policeClearanceIssueDate')?.invalid) ||
+                    (myFormGroup.get('policeClearanceIssueDate')?.touched &&
+                      myFormGroup.get('policeClearanceIssueDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('policeClearanceIssueDate')?.dirty &&
+                      myFormGroup.get('policeClearanceIssueDate')?.valid) ||
+                    (myFormGroup.get('policeClearanceIssueDate')?.touched &&
+                      myFormGroup.get('policeClearanceIssueDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('policeClearanceIssueDate')?.dirty &&
+                    myFormGroup.get('policeClearanceIssueDate')?.invalid) ||
+                  (myFormGroup.get('policeClearanceIssueDate')?.touched &&
+                    myFormGroup.get('policeClearanceIssueDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Police Clearance Issue Date is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="medicalCertificateIssueDate" class="form-label"
+                >Medical Certificate Issue Date</label
+              >
+              <input
+                id="medicalCertificateIssueDate"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="medicalCertificateIssueDate"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('medicalCertificateIssueDate')?.dirty &&
+                      myFormGroup.get('medicalCertificateIssueDate')?.invalid) ||
+                    (myFormGroup.get('medicalCertificateIssueDate')?.touched &&
+                      myFormGroup.get('medicalCertificateIssueDate')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('medicalCertificateIssueDate')?.dirty &&
+                      myFormGroup.get('medicalCertificateIssueDate')?.valid) ||
+                    (myFormGroup.get('medicalCertificateIssueDate')?.touched &&
+                      myFormGroup.get('medicalCertificateIssueDate')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('medicalCertificateIssueDate')?.dirty &&
+                    myFormGroup.get('medicalCertificateIssueDate')?.invalid) ||
+                  (myFormGroup.get('medicalCertificateIssueDate')?.touched &&
+                    myFormGroup.get('medicalCertificateIssueDate')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Medical Certificate Issue Date is required.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="certificatesTraining" class="form-label">Certificates/Training</label>
+              <input
+                id="certificatesTraining"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="certificatesTraining"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('certificatesTraining')?.dirty &&
+                      myFormGroup.get('certificatesTraining')?.invalid) ||
+                    (myFormGroup.get('certificatesTraining')?.touched &&
+                      myFormGroup.get('certificatesTraining')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('certificatesTraining')?.dirty &&
+                      myFormGroup.get('certificatesTraining')?.valid) ||
+                    (myFormGroup.get('certificatesTraining')?.touched &&
+                      myFormGroup.get('certificatesTraining')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('certificatesTraining')?.dirty &&
+                    myFormGroup.get('certificatesTraining')?.invalid) ||
+                  (myFormGroup.get('certificatesTraining')?.touched &&
+                    myFormGroup.get('certificatesTraining')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Certificates/Training is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="status" class="form-label"
+                >Status</label
+              >
+              <input
+                id="status"
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="status"
+                [ngClass]="{
+                  'is-invalid':
+                    (myFormGroup.get('status')?.dirty &&
+                      myFormGroup.get('status')?.invalid) ||
+                    (myFormGroup.get('status')?.touched &&
+                      myFormGroup.get('status')?.invalid),
+                  'is-valid':
+                    (myFormGroup.get('status')?.dirty &&
+                      myFormGroup.get('status')?.valid) ||
+                    (myFormGroup.get('status')?.touched &&
+                      myFormGroup.get('status')?.valid)
+                }"
+              />
+              <div
+                *ngIf="
+                  (myFormGroup.get('status')?.dirty &&
+                    myFormGroup.get('status')?.invalid) ||
+                  (myFormGroup.get('status')?.touched &&
+                    myFormGroup.get('status')?.invalid)
+                "
+                class="invalid-feedback"
+              >
+                Status is required.
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </form>
+    </div>
+
+    <!-- Stepper Navigation Buttons -->
+    <div class="stepper-footer mt-4">
+      <button
+        class="btn btn-secondary"
+        (click)="previousStep()"
+        [disabled]="currentStep === 0"
+      >
+        Previous
+      </button>
+      <button
+        *ngIf="currentStep !== 2"
+        class="btn btn-primary"
+        (click)="nextStep()"
+      >
+        Next
+      </button>
+      <button
+        *ngIf="currentStep === 2"
+        class="btn btn-primary"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

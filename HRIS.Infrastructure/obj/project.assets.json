@@ -1585,6 +1585,20 @@
           }
         }
       },
+      "HRIS.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "HRIS.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/HRIS.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HRIS.Application.dll": {}
+        }
+      },
       "HRIS.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4280,6 +4294,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "HRIS.Application/1.0.0": {
+      "type": "project",
+      "path": "../HRIS.Application/HRIS.Application.csproj",
+      "msbuildProject": "../HRIS.Application/HRIS.Application.csproj"
+    },
     "HRIS.Domain/1.0.0": {
       "type": "project",
       "path": "../HRIS.Domain/HRIS.Domain.csproj",
@@ -4288,7 +4307,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "HRIS.Domain >= 1.0.0",
+      "HRIS.Application >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
@@ -4323,8 +4342,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Domain\\HRIS.Domain.csproj": {
-              "projectPath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Domain\\HRIS.Domain.csproj"
+            "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Application\\HRIS.Application.csproj": {
+              "projectPath": "D:\\Projects\\Personal\\HRIS_latest\\personal_hris\\HRIS.Application\\HRIS.Application.csproj"
             }
           }
         }

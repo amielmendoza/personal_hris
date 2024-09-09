@@ -11,20 +11,15 @@
 
   <ItemGroup>
     <Compile Remove="Models\**" />
-    <Compile Remove="Services\**" />
     <Content Remove="Models\**" />
-    <Content Remove="Services\**" />
     <EmbeddedResource Remove="Models\**" />
-    <EmbeddedResource Remove="Services\**" />
     <None Remove="Models\**" />
-    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Controllers\AdjustmentController.cs" />
     <Compile Remove="Controllers\ApiControllerBase.cs" />
     <Compile Remove="Controllers\Auth2Controller.cs" />
-    <Compile Remove="Controllers\EmployeeController.cs" />
     <Compile Remove="Controllers\HolidayController.cs" />
     <Compile Remove="Controllers\LeaveController.cs" />
     <Compile Remove="Controllers\LoanController.cs" />
@@ -52,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HRIS.Application\HRIS.Application.csproj" />
     <ProjectReference Include="..\hris.client\hris.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

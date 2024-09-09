@@ -17,11 +17,15 @@
     <PackageJsonDependenciesAngularCompiler Condition="$(PackageJsonDependenciesAngularCompiler) == ''">^18.0.0</PackageJsonDependenciesAngularCompiler>
     <PackageJsonDependenciesAngularCore Condition="$(PackageJsonDependenciesAngularCore) == ''">^18.0.0</PackageJsonDependenciesAngularCore>
     <PackageJsonDependenciesAngularForms Condition="$(PackageJsonDependenciesAngularForms) == ''">^18.0.0</PackageJsonDependenciesAngularForms>
+    <PackageJsonDependenciesAngularLocalize Condition="$(PackageJsonDependenciesAngularLocalize) == ''">^18.2.3</PackageJsonDependenciesAngularLocalize>
     <PackageJsonDependenciesAngularPlatformBrowser Condition="$(PackageJsonDependenciesAngularPlatformBrowser) == ''">^18.0.0</PackageJsonDependenciesAngularPlatformBrowser>
     <PackageJsonDependenciesAngularPlatformBrowserDynamic Condition="$(PackageJsonDependenciesAngularPlatformBrowserDynamic) == ''">^18.0.0</PackageJsonDependenciesAngularPlatformBrowserDynamic>
     <PackageJsonDependenciesAngularRouter Condition="$(PackageJsonDependenciesAngularRouter) == ''">^18.0.0</PackageJsonDependenciesAngularRouter>
     <PackageJsonDependenciesFortawesomeFontawesomeFree Condition="$(PackageJsonDependenciesFortawesomeFontawesomeFree) == ''">^6.6.0</PackageJsonDependenciesFortawesomeFontawesomeFree>
+    <PackageJsonDependenciesNgBootstrapNgBootstrap Condition="$(PackageJsonDependenciesNgBootstrapNgBootstrap) == ''">^17.0.1</PackageJsonDependenciesNgBootstrapNgBootstrap>
+    <PackageJsonDependenciesPopperjsCore Condition="$(PackageJsonDependenciesPopperjsCore) == ''">^2.11.8</PackageJsonDependenciesPopperjsCore>
     <PackageJsonDependenciesBootstrap Condition="$(PackageJsonDependenciesBootstrap) == ''">^5.3.3</PackageJsonDependenciesBootstrap>
+    <PackageJsonDependenciesBootstrapIcons Condition="$(PackageJsonDependenciesBootstrapIcons) == ''">^1.11.3</PackageJsonDependenciesBootstrapIcons>
     <PackageJsonDependenciesJestEditorSupport Condition="$(PackageJsonDependenciesJestEditorSupport) == ''">*</PackageJsonDependenciesJestEditorSupport>
     <PackageJsonDependenciesRunScriptOs Condition="$(PackageJsonDependenciesRunScriptOs) == ''">*</PackageJsonDependenciesRunScriptOs>
     <PackageJsonDependenciesRxjs Condition="$(PackageJsonDependenciesRxjs) == ''">~7.8.0</PackageJsonDependenciesRxjs>

@@ -4,6 +4,7 @@
     // d-flex flex-column flex-shrink-0 p-3 text-white bg-dark
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     flex-shrink: 0;
     padding: 1rem;
     color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
@@ -51,4 +52,10 @@
 
 .page-content-container {
   margin: 1rem;
+  // height: 95vh;
+}
+
+.scrollable-container {
+  max-height: 95vh; /* Adjust as needed */
+  overflow-y: auto; /* Enables vertical scrolling */
 }

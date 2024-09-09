@@ -13,11 +13,6 @@ namespace HRIS.Server.Controllers
     [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<AuthController> _logger;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;

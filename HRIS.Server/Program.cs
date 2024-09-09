@@ -5,8 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
+using HRIS.Application.Interfaces;
+using HRIS.Server;
 
 var builder = WebApplication.CreateBuilder(args);
+// Dependency Injection
+builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -70,7 +74,6 @@ using (var scope = app.Services.CreateScope())
 
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
     await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
 }
 

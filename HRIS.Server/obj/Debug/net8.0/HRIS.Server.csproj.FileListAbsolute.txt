@@ -150,3 +150,5 @@ D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Server\obj\Debug\net8.0\HRIS
 D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Server\obj\Debug\net8.0\ref\HRIS.Server.dll
 D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Server\bin\Debug\net8.0\HRIS.Domain.dll
 D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Server\bin\Debug\net8.0\HRIS.Domain.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Server\bin\Debug\net8.0\HRIS.Application.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Server\bin\Debug\net8.0\HRIS.Application.pdb

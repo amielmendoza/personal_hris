@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { HomeComponent } from './pages/home/home.component';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     AppRoutingModule,
     LoginModule,
-    DashboardModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

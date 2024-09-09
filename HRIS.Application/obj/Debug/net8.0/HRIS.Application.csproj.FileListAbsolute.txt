@@ -1,0 +1,16 @@
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\bin\Debug\net8.0\HRIS.Application.deps.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\bin\Debug\net8.0\HRIS.Application.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\bin\Debug\net8.0\HRIS.Application.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\bin\Debug\net8.0\HRIS.Domain.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\bin\Debug\net8.0\HRIS.Domain.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.csproj.AssemblyReference.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.AssemblyInfoInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.AssemblyInfo.cs
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.csproj.CoreCompileInputs.cache
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.sourcelink.json
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.App.9AEF7F36.Up2Date
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\refint\HRIS.Application.dll
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\HRIS.Application.pdb
+D:\Projects\Personal\HRIS_latest\personal_hris\HRIS.Application\obj\Debug\net8.0\ref\HRIS.Application.dll

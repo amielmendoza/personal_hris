@@ -5,8 +5,7 @@
     <a href="#">Profile</a>
   </div> -->
 
-  <div class="side-bar"
-  >
+  <div class="side-bar">
     <a
       href="/"
       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
@@ -17,10 +16,19 @@
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
       <li *ngFor="let navigation of navigations" class="nav-item">
-          <a routerLink={{navigation.link}} routerLinkActive="active" class="nav-link text-white" aria-current="page">
-
-          <i class={{navigation.icon}} [ngClass]="{'fa-bounce': '/dashboard/' + navigation.link === currentRoute}"></i>
-          <span>{{navigation.name}}</span>
+        <a
+          routerLink="{{ navigation.link }}"
+          routerLinkActive="active"
+          class="nav-link text-white"
+          aria-current="page"
+        >
+          <i
+            class="{{ navigation.icon }}"
+            [ngClass]="{
+              'fa-bounce': '/dashboard/' + navigation.link === currentRoute
+            }"
+          ></i>
+          <span>{{ navigation.name }}</span>
         </a>
       </li>
     </ul>
@@ -54,7 +62,9 @@
       </ul>
     </div>
   </div>
-  <div class="page-content-container">
-    <router-outlet></router-outlet>
+  <div class="page-content-container container-fluid">
+    <!-- <div class="scrollable-container"> -->
+      <router-outlet></router-outlet>
+    <!-- </div> -->
   </div>
 </div>
