@@ -35,6 +35,10 @@
     &.header {
       font-size: 40px;
       width: 50px;
+      padding-right: 0px;
+      @media (min-width: 768px) {
+        padding-right: 10px;
+      }
     }
 
     // @include media-breakpoint-up(sm) {
