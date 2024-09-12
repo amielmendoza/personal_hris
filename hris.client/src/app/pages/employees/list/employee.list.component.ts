@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SpinnerService } from '../../../services/spinner.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -73,11 +74,17 @@ export class EmployeeListComponent {
   totalPages = 0;
   pages: any = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private spinnerService: SpinnerService
+  ) {}
 
   ngOnInit() {
+    this.spinnerService.show();
     this.calculateTotalPages();
     this.paginateItems();
+    this.spinnerService.hide();
   }
 
   calculateTotalPages() {

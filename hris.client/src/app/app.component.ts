@@ -11,15 +11,18 @@ interface WeatherForecast {
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet />',
-  // templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  isLoading: boolean = true;
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
   }
 
-  title = 'RONA RGC';
+  title = 'RGC';
 }
