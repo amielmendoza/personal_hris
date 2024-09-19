@@ -13,6 +13,17 @@
   pointer-events: none;
 }
 
+.disabled {
+  background-color: #e9ecef;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.text-danger {
+  font-size: 14px;
+}
+
 .row {
   margin-top: 1rem;
 }
