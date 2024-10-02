@@ -1,5 +1,4 @@
-﻿using HRIS.Application.Interfaces;
-using HRIS.Domain.Common;
+﻿using HRIS.Domain.Common;
 using HRIS.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -8,8 +7,10 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore;
 using System;
+using System.Reflection;
+using HRIS.Infrastructure.Authentication;
 
-namespace HRIS.Infrastructure;
+namespace HRIS.Infrastructure.Persistence;
 public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicationDbContext
 {
     private IConfiguration _configuration;
@@ -84,5 +85,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicatio
     protected override async void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

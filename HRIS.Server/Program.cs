@@ -3,56 +3,57 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text;
-using HRIS.Application.Interfaces;
 using HRIS.Server;
+using HRIS.Application;
+using HRIS.Infrastructure.Authentication;
+using HRIS.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 // Dependency Injection
-builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
-// Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), sqlOptions => sqlOptions.MigrationsAssembly("HRIS.Infrastructure")));
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+//    {
+//        options.SignIn.RequireConfirmedEmail = true;
+//        // After 5 request failed the account will be locked
+//        options.Lockout.MaxFailedAccessAttempts = 5;
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-    {
-        options.SignIn.RequireConfirmedEmail = true;
-        // After 5 request failed the account will be locked
-        options.Lockout.MaxFailedAccessAttempts = 5;
-
-        // After 5 minutes the account will be unlocked
-        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-    })
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddRoles<IdentityRole>()
-    .AddDefaultTokenProviders();
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    };
-});
+//        // After 5 minutes the account will be unlocked
+//        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+//    })
+//    .AddEntityFrameworkStores<ApplicationDbContext>()
+//    .AddRoles<IdentityRole>()
+//    .AddDefaultTokenProviders();
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+//.AddJwtBearer(options =>
+//{
+//    options.TokenValidationParameters = new TokenValidationParameters
+//    {
+//        ValidateIssuer = true,
+//        ValidateAudience = true,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+//        ValidAudience = builder.Configuration["Jwt:Audience"],
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+//    };
+//});
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddAuthorization();
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services
+    .AddInfrastructure(builder.Configuration)
+    .AddApplication();
 
 var app = builder.Build();
 

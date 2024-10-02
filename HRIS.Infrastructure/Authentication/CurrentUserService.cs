@@ -1,8 +1,8 @@
-﻿using HRIS.Application.Interfaces;
+﻿using HRIS.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace HRIS.Server
+namespace HRIS.Infrastructure.Authentication
 {
     public class CurrentUserService : ICurrentUserService
     {

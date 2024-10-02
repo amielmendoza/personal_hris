@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRIS.Application.Interfaces
+namespace HRIS.Infrastructure.Persistence
 {
     public interface IApplicationDbContext
     {

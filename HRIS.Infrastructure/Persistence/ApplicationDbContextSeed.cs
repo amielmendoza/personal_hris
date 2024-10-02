@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
 
-namespace HRIS.Infrastructure
+namespace HRIS.Infrastructure.Persistence
 {
     public static class ApplicationDbContextSeed
     {
