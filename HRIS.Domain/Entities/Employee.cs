@@ -47,7 +47,7 @@ public record Employee : AuditableEntity
     public DateTime? SwabTestResultDate { get; set; }
     public int NoOfDependents { get; set; }
     public DateTime? ContractEndDate { get; set; }
-    public Guid? ContractEndReasonId { get; set; }
+   
     public string Trainings { get; set; }
     public string Remarks { get; set; }
     public string Status { get; set; }
@@ -60,6 +60,19 @@ public record Employee : AuditableEntity
                   && String.IsNullOrEmpty(this.HDMF));
         }
     }
+
+    // New Site reference
+    public Guid SiteId { get; private set; }
+    public Site Site { get; private set; }
+
+    public Guid? DepartmentId { get; private set; }
+    public Department Department { get; private set; }
+
+    public Guid? ContractEndReasonId { get; private set; }
+    public ContractEndReason ContractEndReason { get; set; }
+
+    public Guid EmployeeStatusId { get; private set; }
+    public EmployeeStatus EmployeeStatus { get; private set; }
 
     //public bool IsActive
     //{

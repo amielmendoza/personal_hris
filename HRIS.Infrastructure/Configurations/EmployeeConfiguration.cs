@@ -91,6 +91,26 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
             .HasForeignKey(e => e.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        builder.HasOne(e => e.Site)
+                .WithMany()
+                .HasForeignKey(e => e.SiteId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(e => e.Department)
+            .WithMany()
+            .HasForeignKey(e => e.DepartmentId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        builder.HasOne(e => e.ContractEndReason)
+                .WithMany()
+                .HasForeignKey(e => e.ContractEndReasonId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+        builder.HasOne(e => e.EmployeeStatus)
+                .WithMany()
+                .HasForeignKey(e => e.EmployeeStatusId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         // Indexes
         builder.HasIndex(e => e.EmployeeNo)
             .IsUnique();

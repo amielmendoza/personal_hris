@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using HRIS.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace HRIS.Infrastructure.Persistence
@@ -16,7 +17,7 @@ namespace HRIS.Infrastructure.Persistence
         //            {
         //                for (int i = 0; i < 100; i++)
         //                {
-        //                    var employmentStatus = context.EmploymentStatuses.FirstOrDefault();
+        //                    var EmployeeStatus = context.EmployeeStatuses.FirstOrDefault();
 
         //                    var empUser = new ApplicationUser { UserName = $"emp000@rgc{i}", Email = $"emp000@rgc{i}" };
         //                    if (userManager.Users.All(u => u.UserName != empUser.UserName))
@@ -62,7 +63,7 @@ namespace HRIS.Infrastructure.Persistence
         //                        TIN = "123-456-789",
         //                        NoOfDependents = 3,
         //                        Remarks = "ghost employee",
-        //                        EmploymentStatusId = employmentStatus.Id
+        //                        EmployeeStatusId = EmployeeStatus.Id
         //                    };
 
         //                    await context.Employees.AddAsync(employee);
@@ -114,295 +115,302 @@ namespace HRIS.Infrastructure.Persistence
                 await userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
         }
-        //public static async Task SeedReferenceDataAsync(ApplicationDbContext context)
-        //{
-        //    context.Database.EnsureCreated();
 
-        //    if (
-        //        context.EmploymentStatuses.Any() &&
-        //        context.EmployeeLeaveStatuses.Any() &&
-        //        context.EmployeeLeaveTypes.Any() &&
-        //        context.EmployeeLoanStatuses.Any() &&
-        //        context.EmployeeLoanTypes.Any() &&
-        //        context.Sites.Any() &&
-        //        context.Departments.Any()
-        //        )
-        //        return;
+        public static async Task SeedReferenceDataAsync(ApplicationDbContext context)
+        {
+            context.Database.EnsureCreated();
 
-        //    if (!context.EmploymentStatuses.Any())
-        //    {
-        //        await SeedEmployeeStatus(context);
-        //    }
+            if (
+                context.EmployeeStatuses.Any() &&
+                context.EmployeeLeaveStatuses.Any() &&
+                context.EmployeeLeaveTypes.Any() &&
+                context.EmployeeLoanStatuses.Any() &&
+                context.EmployeeLoanTypes.Any() &&
+                context.Sites.Any() &&
+                context.Departments.Any() &&
+                context.ContractEndReasons.Any()
+                )
+                return;
 
-        //    if (!context.EmployeeLeaveStatuses.Any())
-        //    {
-        //        await SeedLeaveStatuses(context);
-        //    }
+            if (!context.EmployeeStatuses.Any())
+            {
+                await SeedEmployeeStatus(context);
+            }
 
-        //    if (!context.EmployeeLeaveTypes.Any())
-        //    {
-        //        await SeedLeaveTypes(context);
-        //    }
+            if (!context.EmployeeLeaveStatuses.Any())
+            {
+                await SeedLeaveStatuses(context);
+            }
 
-        //    if (!context.EmployeeLoanTypes.Any())
-        //    {
-        //        await SeedLoanTypes(context);
-        //    }
+            if (!context.EmployeeLeaveTypes.Any())
+            {
+                await SeedLeaveTypes(context);
+            }
 
-        //    if (!context.EmployeeLoanStatuses.Any())
-        //    {
-        //        await SeedLoanStatuses(context);
-        //    }
+            if (!context.EmployeeLoanTypes.Any())
+            {
+                await SeedLoanTypes(context);
+            }
 
-        //    if (!context.Sites.Any())
-        //    {
-        //        await SeedSites(context);
-        //    }
+            if (!context.EmployeeLoanStatuses.Any())
+            {
+                await SeedLoanStatuses(context);
+            }
 
-        //    //if (!context.Departments.Any())
-        //    //{
-        //    //    await SeedDepartments(context);
-        //    //}
+            if (!context.ContractEndReasons.Any())
+            {
+                await SeedContractEndReasons(context);
+            }
 
-        //    using (context.Database.BeginTransaction())
-        //    {
-        //        try
-        //        {
-        //            await context.SaveChangesAsync().ConfigureAwait(false);
-        //            context.Database.CommitTransaction();
-        //        }
-        //        catch (Exception)
-        //        {
-        //            context.Database.RollbackTransaction();
-        //        }
-        //    }
-        //}
-        //private static async Task SeedSites(ApplicationDbContext context)
-        //{
-        //    if (!context.Sites.Any())
-        //    {
-        //        var list = new[]
-        //        {
-        //            new Site { Name = "Bacolod" },
-        //            new Site { Name = "Legazpi" },
-        //            new Site { Name = "Ormoc" },
-        //            new Site { Name = "Bauang" },
-        //            new Site { Name = "Poro" },
-        //            new Site { Name = "Tagbilaran" },
-        //            new Site { Name = "Roxas" },
-        //            new Site { Name = "Jimenez" },
-        //            new Site { Name = "Navotas" },
-        //            new Site { Name = "Rosario" },
-        //            new Site { Name = "Rosario Subcon Rios" },
-        //            new Site { Name = "Rosario Subcon Tagle" },
-        //            new Site { Name = "Imus Office" },
-        //            new Site { Name = "Imus Fabrication" },
-        //        }.OrderBy(x=>x.Name);
+            if (!context.Sites.Any())
+            {
+                await SeedSites(context);
+            }
 
-        //        await context.Sites.AddRangeAsync(list);
-        //        await SeedDepartments(context, list);
-        //    }
-        //}
+            //if (!context.Departments.Any())
+            //{
+            //    await SeedDepartments(context);
+            //}
 
-        //private static async Task SeedDepartments(ApplicationDbContext context, IEnumerable<Site> sites)
-        //{
-        //    if (!context.Departments.Any())
-        //    {
-        //        var jimenezSite = sites.FirstOrDefault(x => x.Name == "Jimenez").Id;
-        //        var navotasSite = sites.FirstOrDefault(x => x.Name == "Navotas").Id;
-        //        var tagbilaranSite = sites.FirstOrDefault(x => x.Name == "Tagbilaran").Id;
-        //        var roxasSite = sites.FirstOrDefault(x => x.Name == "Roxas").Id;
-        //        var ormocSite = sites.FirstOrDefault(x => x.Name == "Ormoc").Id;
-        //        var legazpiSite = sites.FirstOrDefault(x => x.Name == "Legazpi").Id;
-        //        var poroSite = sites.FirstOrDefault(x => x.Name == "Poro").Id;
-        //        var rosarioSite = sites.FirstOrDefault(x => x.Name == "Rosario").Id;
-        //        var bauangSite = sites.FirstOrDefault(x => x.Name == "Bauang").Id;
-        //        var imusFabricationSite = sites.FirstOrDefault(x => x.Name == "Imus Fabrication").Id;
-        //        var imusOfficeSite = sites.FirstOrDefault(x => x.Name == "Imus Office").Id;
+            using (context.Database.BeginTransaction())
+            {
+                try
+                {
+                    await context.SaveChangesAsync().ConfigureAwait(false);
+                    context.Database.CommitTransaction();
+                }
+                catch (Exception)
+                {
+                    context.Database.RollbackTransaction();
+                }
+            }
+        }
+        private static async Task SeedSites(ApplicationDbContext context)
+        {
+            if (!context.Sites.Any())
+            {
+                var list = new[]
+                {
+                    new Site(Guid.NewGuid(), "Bacolod", "BA", "Bacolod"),
+                    new Site(Guid.NewGuid(), "Legazpi", "L", "Legazpi"),
+                    new Site(Guid.NewGuid(), "Ormoc", "O", "Ormoc"),
+                    new Site(Guid.NewGuid(), "Bauang", "BU", "Bauang"),
+                    new Site(Guid.NewGuid(), "Poro", "P", "Poro"),
+                    new Site(Guid.NewGuid(), "Tagbilaran", "T", "Tagbilaran"),
+                    new Site(Guid.NewGuid(), "Roxas", "RX", "Roxas"),
+                    new Site(Guid.NewGuid(), "Jimenez", "J", "Jimenez"),
+                    new Site(Guid.NewGuid(), "Navotas", "N", "Navotas"),
+                    new Site(Guid.NewGuid(), "Rosario", "RO", "Rosario"),
+                    new Site(Guid.NewGuid(), "Rosario Subcon Rios", "RSR", "Rosario Subcon Rios"),
+                    new Site(Guid.NewGuid(), "Rosario Subcon Tagle", "RST", "Rosario Subcon Tagle"),
+                    new Site(Guid.NewGuid(), "Imus Office", "IO", "Imus Office"),
+                    new Site(Guid.NewGuid(), "Imus Fabrication", "IF", "Imus Fabrication"),
+                }.OrderBy(x => x.Name);
 
-        //        var list = new[]
-        //        {
-        //            // Jimenez
-        //            new Department { Name = "GBM", SiteId = jimenezSite },
-        //            new Department { Name = "PM", SiteId = jimenezSite },
-        //            new Department { Name = "TRA", SiteId = jimenezSite },
-        //            new Department { Name = "ETHANOL", SiteId = jimenezSite },
-        //            new Department { Name = "WAREHOUSE", SiteId = jimenezSite },
-        //            new Department { Name = "WORK ORDER", SiteId = jimenezSite },
-        //            new Department { Name = "BIG PROJECT", SiteId = jimenezSite },
+                await context.Sites.AddRangeAsync(list);
+                await SeedDepartments(context, list);
+            }
+        }
 
-        //            // Navotas
-        //            new Department { Name = "PM", SiteId = navotasSite },
-        //            new Department { Name = "GBM", SiteId = navotasSite },
-        //            new Department { Name = "TRA", SiteId = navotasSite },
-        //            new Department { Name = "WORK ORDER", SiteId = navotasSite },
-        //            new Department { Name = "BIG PROJECT", SiteId = navotasSite },
+        private static async Task SeedDepartments(ApplicationDbContext context, IEnumerable<Site> sites)
+        {
+            if (!context.Departments.Any())
+            {
+                var jimenezSite = sites.FirstOrDefault(x => x.Name == "Jimenez").Id;
+                var navotasSite = sites.FirstOrDefault(x => x.Name == "Navotas").Id;
+                var tagbilaranSite = sites.FirstOrDefault(x => x.Name == "Tagbilaran").Id;
+                var roxasSite = sites.FirstOrDefault(x => x.Name == "Roxas").Id;
+                var ormocSite = sites.FirstOrDefault(x => x.Name == "Ormoc").Id;
+                var legazpiSite = sites.FirstOrDefault(x => x.Name == "Legazpi").Id;
+                var poroSite = sites.FirstOrDefault(x => x.Name == "Poro").Id;
+                var rosarioSite = sites.FirstOrDefault(x => x.Name == "Rosario").Id;
+                var bauangSite = sites.FirstOrDefault(x => x.Name == "Bauang").Id;
+                var imusFabricationSite = sites.FirstOrDefault(x => x.Name == "Imus Fabrication").Id;
+                var imusOfficeSite = sites.FirstOrDefault(x => x.Name == "Imus Office").Id;
 
-        //            // Tagbilaran
-        //            new Department { Name = "GBM", SiteId = tagbilaranSite },
+                var list = new[]
+                {
+                    // Jimenez
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", jimenezSite),
+                    new Department(Guid.NewGuid(), "PM", "P", "PM", jimenezSite),
+                    new Department(Guid.NewGuid(), "TRA", "T", "TRA", jimenezSite),
+                    new Department(Guid.NewGuid(), "ETHANOL", "E", "ETHANOL", jimenezSite),
+                    new Department(Guid.NewGuid(), "WAREHOUSE", "W", "WAREHOUSE", jimenezSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", jimenezSite),
+                    new Department(Guid.NewGuid(), "BIG PROJECT", "BP", "BIG PROJECT", jimenezSite),
 
-        //            // Roxas
-        //            new Department { Name = "GBM", SiteId = roxasSite },
-        //            new Department { Name = "TRA", SiteId = roxasSite },
-        //            new Department { Name = "ETHANOL", SiteId = roxasSite },
-        //            new Department { Name = "MOORING", SiteId = roxasSite },
-        //            new Department { Name = "WORK ORDER", SiteId = roxasSite },
-        //            new Department { Name = "BIG PROJECT", SiteId = roxasSite },
+                    // Navotas
+                    new Department(Guid.NewGuid(), "PM", "P", "PM", navotasSite),
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", navotasSite),
+                    new Department(Guid.NewGuid(), "TRA", "T", "TRA", navotasSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", navotasSite),
+                    new Department(Guid.NewGuid(), "BIG PROJECT", "BP", "BIG PROJECT", navotasSite),
 
-        //            // Ormoc
-        //            new Department { Name = "GBM", SiteId = ormocSite },
-        //            new Department { Name = "PM", SiteId = ormocSite },
-        //            new Department { Name = "TRA", SiteId = ormocSite },
-        //            new Department { Name = "WAREHOUSE", SiteId = ormocSite },
-        //            new Department { Name = "LPG", SiteId = ormocSite },
-        //            new Department { Name = "TTLR, TTIP, Ethanol Receiving, Additive & Tank Gauging Asst.", SiteId = ormocSite },
-        //            new Department { Name = "WORK ORDER", SiteId = ormocSite },
-        //            new Department { Name = "BIG PROJECT", SiteId = ormocSite },
+                    // Tagbilaran
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", tagbilaranSite),
 
-        //            // Legazpi
-        //            new Department { Name = "GBM", SiteId = legazpiSite },
-        //            new Department { Name = "PM", SiteId = legazpiSite },
-        //            new Department { Name = "LPG", SiteId = legazpiSite },
-        //            new Department { Name = "WORK ORDER", SiteId = legazpiSite },
-        //            new Department { Name = "BIG PROJECT", SiteId = legazpiSite },
+                    // Roxas
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", roxasSite),
+                    new Department(Guid.NewGuid(), "TRA", "T", "TRA", roxasSite),
+                    new Department(Guid.NewGuid(), "ETHANOL", "E", "ETHANOL", roxasSite),
+                    new Department(Guid.NewGuid(), "MOORING", "M", "MOORING", roxasSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", roxasSite),
+                    new Department(Guid.NewGuid(), "BIG PROJECT", "BP", "BIG PROJECT", roxasSite),
 
-        //            // Poro
-        //            new Department { Name = "GBM", SiteId = poroSite },
-        //            new Department { Name = "PM", SiteId = poroSite },
-        //            new Department { Name = "LPG", SiteId = poroSite },
-        //            new Department { Name = "TRA", SiteId = poroSite },
-        //            new Department { Name = "WORK ORDER", SiteId = poroSite },
-        //            new Department { Name = "BIG PROJECT", SiteId = poroSite },
+                    // Ormoc
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", ormocSite),
+                    new Department(Guid.NewGuid(), "PM", "P", "PM", ormocSite),
+                    new Department(Guid.NewGuid(), "TRA", "T", "TRA", ormocSite),
+                    new Department(Guid.NewGuid(), "WAREHOUSE", "W", "WAREHOUSE", ormocSite),
+                    new Department(Guid.NewGuid(), "LPG", "L", "LPG", ormocSite),
+                    new Department(Guid.NewGuid(), "TTLR, TTIP, Ethanol Receiving, Additive & Tank Gauging Asst.", "TTERAT", "TTLR, TTIP, Ethanol Receiving, Additive & Tank Gauging Asst.", ormocSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", ormocSite),
+                    new Department(Guid.NewGuid(), "PROJECT", "P", "PROJECT", ormocSite),
 
-        //            // Rosario 
-        //            new Department { Name = "GBM", SiteId = rosarioSite },
-        //            new Department { Name = "PM", SiteId = rosarioSite },
-        //            new Department { Name = "LPG", SiteId = rosarioSite },
-        //            new Department { Name = "TRA", SiteId = rosarioSite },
-        //            new Department { Name = "ADMIN", SiteId = rosarioSite },
-        //            new Department { Name = "CLINIC", SiteId = rosarioSite },
-        //            new Department { Name = "FIESSTA", SiteId = rosarioSite },
-        //            new Department { Name = "WORK ORDER", SiteId = rosarioSite },
-        //            new Department { Name = "SUBCON PROJECT", SiteId = rosarioSite },
+                    // Legazpi
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", legazpiSite),
+                    new Department(Guid.NewGuid(), "PM", "P", "PM", legazpiSite),
+                    new Department(Guid.NewGuid(), "LPG", "L", "LPG", legazpiSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", legazpiSite),
+                    new Department(Guid.NewGuid(), "BIG PROJECT", "BP", "BIG PROJECT", legazpiSite),
 
-        //            // Bauang
-        //            new Department { Name = "COMMERCIAL BUILDING", SiteId = bauangSite },
-        //            new Department { Name = "RESORT", SiteId = bauangSite },
+                    // Poro
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", poroSite),
+                    new Department(Guid.NewGuid(), "PM", "P", "PM", poroSite),
+                    new Department(Guid.NewGuid(), "LPG", "L", "LPG", poroSite),
+                    new Department(Guid.NewGuid(), "TRA", "T", "TRA", poroSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", poroSite),
+                    new Department(Guid.NewGuid(), "BIG PROJECT", "BP", "BIG PROJECT", poroSite),
 
-        //            // Imus Fabrication
-        //            new Department { Name = "with deduction", SiteId = imusFabricationSite },
-        //            new Department { Name = "without deduction", SiteId = imusFabricationSite },
+                    // Rosario 
+                    new Department(Guid.NewGuid(), "GBM", "G", "GBM", rosarioSite),
+                    new Department(Guid.NewGuid(), "PM", "P", "PM", rosarioSite),
+                    new Department(Guid.NewGuid(), "LPG", "L", "LPG", rosarioSite),
+                    new Department(Guid.NewGuid(), "TRA", "T", "TRA", rosarioSite),
+                    new Department(Guid.NewGuid(), "ADMIN", "A", "ADMIN", rosarioSite),
+                    new Department(Guid.NewGuid(), "CLINIC", "C", "CLINIC", rosarioSite),
+                    new Department(Guid.NewGuid(), "FIESSTA", "F", "FIESSTA", rosarioSite),
+                    new Department(Guid.NewGuid(), "WORK ORDER", "WO", "WORK ORDER", rosarioSite),
+                    new Department(Guid.NewGuid(), "SUBCON PROJECT", "SP", "SUBCON PROJECT", rosarioSite),
+                    
 
-        //            // Imus Office
-        //            new Department { Name = "General Manager", SiteId = imusOfficeSite },
-        //            new Department { Name = "Dela Cruz", SiteId = imusOfficeSite },
-        //            new Department { Name = "Supervisor", SiteId = imusOfficeSite },
-        //            new Department { Name = "OJT", SiteId = imusOfficeSite },
-        //            new Department { Name = "Part-time", SiteId = imusOfficeSite },
-        //            new Department { Name = "HR", SiteId = imusOfficeSite },
-        //            new Department { Name = "Admin and Engineering", SiteId = imusOfficeSite },
-        //        };
+                    // Bauang
+                    new Department(Guid.NewGuid(), "COMMERCIAL BUILDING", "CB", "COMMERCIAL BUILDING", bauangSite),
+                    new Department(Guid.NewGuid(), "RESORT", "R", "RESORT", bauangSite),
 
-        //        await context.Departments.AddRangeAsync(list);
-        //    }
-        //}
-        //private static async Task SeedEmployeeStatus(ApplicationDbContext context)
-        //{
-        //    if (!context.EmploymentStatuses.Any())
-        //    {
-        //        var list = new[]
-        //        {
+                    // Imus Fabrication
+                    new Department(Guid.NewGuid(), "with deduction", "WD", "with deduction", imusFabricationSite),
+                    new Department(Guid.NewGuid(), "without deduction", "WOD", "without deduction", imusFabricationSite),
 
-        //            new EmploymentStatus { Code = "R", Name = "Regular", Description = "Regular" },
-        //            new EmploymentStatus { Code = "RE", Name = "Reliever", Description = "Reliever" },
-        //            new EmploymentStatus { Code = "C", Name = "Contractual", Description = "Contractual" },
-        //            new EmploymentStatus { Code = "PB", Name = "Project Based", Description = "Project Based" },
-        //            new EmploymentStatus { Code = "P", Name = "Probationary", Description = "Probationary" },
-        //            new EmploymentStatus { Code = "AL", Name = "Apprentice", Description = "Apprentice" },
-        //            new EmploymentStatus { Code = "T", Name = "Terminated", Description = "Terminated" },
-        //            new EmploymentStatus { Code = "RS", Name = "Resigned", Description = "Resigned" },
-        //            new EmploymentStatus { Code = "RT", Name = "Retired", Description = "Retired" },
-        //            new EmploymentStatus { Code = "D", Name = "Deceased", Description = "Deceased" },
-        //            new EmploymentStatus { Code = "A", Name = "AWOL", Description = "AWOL" }
-        //        };
+                    // Imus Office
+                    new Department(Guid.NewGuid(), "General Manager", "GM", "General Manager", imusOfficeSite),
+                    new Department(Guid.NewGuid(), "Dela Cruz", "DC", "Dela Cruz", imusOfficeSite),
+                    new Department(Guid.NewGuid(), "Supervisor", "S", "Supervisor", imusOfficeSite),
+                    new Department(Guid.NewGuid(), "OJT", "OJT", "OJT", imusOfficeSite),
+                    new Department(Guid.NewGuid(), "Part-time", "PT", "Part-time", imusOfficeSite),
+                    new Department(Guid.NewGuid(), "HR", "HR", "HR", imusOfficeSite),
+                    new Department(Guid.NewGuid(), "Admin and Engineering", "AE", "Admin and Engineering", imusOfficeSite),
+                };
 
-        //        await context.EmploymentStatuses.AddRangeAsync(list);
-        //    }
-        //}
-        //private static async Task SeedContractEndReasons(ApplicationDbContext context)
-        //{
-        //    if (!context.ContractEndReasons.Any())
-        //    {
-        //        var list = new[]
-        //        {
-        //            new ContractEndReason { Code = "T", Name = "Terminated", Description = "Terminated" },
-        //            new ContractEndReason { Code = "RE", Name = "Resigned", Description = "Resigned" },
-        //            new ContractEndReason { Code = "TR", Name = "Transferred", Description = "Transferred" },
-        //            new ContractEndReason { Code = "R", Name = "Retirement", Description = "Retirement" },
-        //            new ContractEndReason { Code = "D", Name = "Death", Description = "Death" }
-        //        };
+                await context.Departments.AddRangeAsync(list);
+            }
+        }
+        private static async Task SeedEmployeeStatus(ApplicationDbContext context)
+        {
+            if (!context.EmployeeStatuses.Any())
+            {
+                var list = new[]
+                {
+                    new EmployeeStatus(Guid.NewGuid(), "Regular", "R", "Regular"),
+                    new EmployeeStatus(Guid.NewGuid(), "Reliever", "R", "Reliever"),
+                    new EmployeeStatus(Guid.NewGuid(), "Contractual", "C", "Contractual"),
+                    new EmployeeStatus(Guid.NewGuid(), "Project Based", "PB", "Project Based"),
+                    new EmployeeStatus(Guid.NewGuid(), "Probationary", "P", "Probationary"),
+                    new EmployeeStatus(Guid.NewGuid(), "Apprentice", "AL", "Apprentice"),
+                    new EmployeeStatus(Guid.NewGuid(), "Terminated", "T", "Terminated"),
+                    new EmployeeStatus(Guid.NewGuid(), "Resigned", "RS", "Resigned"),
+                    new EmployeeStatus(Guid.NewGuid(), "Retired", "RT", "Retired"),
+                    new EmployeeStatus(Guid.NewGuid(), "Deceased", "D", "Deceased"),
+                    new EmployeeStatus(Guid.NewGuid(), "AWOL", "A", "AWOL")
+                };
 
-        //        await context.ContractEndReasons.AddRangeAsync(list);
-        //    }
-        //}
+                await context.EmployeeStatuses.AddRangeAsync(list);
+            }
+        }
+        private static async Task SeedContractEndReasons(ApplicationDbContext context)
+        {
+            if (!context.ContractEndReasons.Any())
+            {
+                var list = new[]
+                {
+                    new ContractEndReason(Guid.NewGuid(), "Terminated", "T", "Terminated"),
+                    new ContractEndReason(Guid.NewGuid(), "Resigned", "RE", "Resigned"),
+                    new ContractEndReason(Guid.NewGuid(), "Transferred", "TR", "Transferred"),
+                    new ContractEndReason(Guid.NewGuid(), "Retirement", "R", "Retirement"),
+                    new ContractEndReason(Guid.NewGuid(), "Death", "D", "Death")
+                };
 
-        //private static async Task SeedLeaveTypes(ApplicationDbContext context)
-        //{
-        //    if (!context.EmployeeLeaveTypes.Any())
-        //    {
-        //        var list = new[]
-        //        {
-        //            new EmployeeLeaveType { Code = "VL", Name = "Vacation Leave", Description = "Vacation Leave" },
-        //            new EmployeeLeaveType { Code = "SL", Name = "Sick Leave", Description = "Sick Leave" },
-        //            new EmployeeLeaveType { Code = "ML", Name = "Maternity Leave", Description = "Maternity Leave" },
-        //            new EmployeeLeaveType { Code = "PL", Name = "Paternity Leave", Description = "Paternity Leave" },
-        //        };
-        //        await context.EmployeeLeaveTypes.AddRangeAsync(list);
-        //    }
-        //}
+                await context.ContractEndReasons.AddRangeAsync(list);
+            }
+        }
+
+        private static async Task SeedLeaveTypes(ApplicationDbContext context)
+        {
+            if (!context.EmployeeLeaveTypes.Any())
+            {
+                var list = new[]
+                {
+                    new EmployeeLeaveType(Guid.NewGuid(), "Vacation Leave", "VL", "Vacation Leave"),
+                    new EmployeeLeaveType(Guid.NewGuid(), "Sick Leave", "SL", "Sick Leave"),
+                    new EmployeeLeaveType(Guid.NewGuid(), "Maternity Leave", "ML", "Maternity Leave"),
+                    new EmployeeLeaveType(Guid.NewGuid(), "Paternity Leave", "PL", "Paternity Leave"),
+                };
+                await context.EmployeeLeaveTypes.AddRangeAsync(list);
+            }
+        }
 
 
-        //private static async Task SeedLoanTypes(ApplicationDbContext context)
-        //{
-        //    if (!context.EmployeeLoanTypes.Any())
-        //    {
-        //        var list = new[]
-        //        {
-        //            new EmployeeLoanType { Code = "SSL", Name = "SSS Salary Loan", Description = "SSS Salary Loan" },
-        //            new EmployeeLoanType { Code = "SCL", Name = "SSS Calamity Loan", Description = "SSS Calamity Loan" },
-        //            new EmployeeLoanType { Code = "PSL", Name = "Pag-IBIG Salary Loan", Description = "Pag-IBIG Salary Loan" },
-        //            new EmployeeLoanType { Code = "PCL", Name = "Pag-IBIG Calamity Loan", Description = "Pag-IBIG Calamity Loan" },
-        //        };
-        //        await context.EmployeeLoanTypes.AddRangeAsync(list);
-        //    }
-        //}
+        private static async Task SeedLoanTypes(ApplicationDbContext context)
+        {
+            if (!context.EmployeeLoanTypes.Any())
+            {
+                var list = new[]
+                {
+                    new EmployeeLoanType(Guid.NewGuid(), "SSS Salary Loan", "SSL", "SSS Salary Loan"),
+                    new EmployeeLoanType(Guid.NewGuid(), "SSS Calamity Loan", "SCL", "SSS Calamity Loan"),
+                    new EmployeeLoanType(Guid.NewGuid(), "Pag-IBIG Salary Loan", "PSL", "Pag-IBIG Salary Loan"),
+                    new EmployeeLoanType(Guid.NewGuid(), "Pag-IBIG Calamity Loan", "PCL", "Pag-IBIG Calamity Loan")
+                };
+                await context.EmployeeLoanTypes.AddRangeAsync(list);
+            }
+        }
 
-        //private static async Task SeedLeaveStatuses(ApplicationDbContext context)
-        //{
-        //    if (!context.EmployeeLeaveStatuses.Any())
-        //    {
-        //        var list = new[]
-        //        {
-        //            new EmployeeLeaveStatus { Code = "N", Name = "New", Description = "New" },
-        //            new EmployeeLeaveStatus { Code = "A", Name = "Approved", Description = "Approved" },
-        //            new EmployeeLeaveStatus { Code = "D", Name = "Denied", Description = "Denied" }
-        //        };
-        //        await context.EmployeeLeaveStatuses.AddRangeAsync(list);
-        //    }
-        //}
+        private static async Task SeedLeaveStatuses(ApplicationDbContext context)
+        {
+            if (!context.EmployeeLeaveStatuses.Any())
+            {
+                var list = new[]
+                {
+                    new EmployeeLeaveStatus(Guid.NewGuid(), "New", "N", "New"),
+                    new EmployeeLeaveStatus(Guid.NewGuid(), "Approved", "A", "Approved"),
+                    new EmployeeLeaveStatus(Guid.NewGuid(), "Denied", "D", "Denied")
+                };
+                await context.EmployeeLeaveStatuses.AddRangeAsync(list);
+            }
+        }
 
-        //private static async Task SeedLoanStatuses(ApplicationDbContext context)
-        //{
-        //    if (!context.EmployeeLoanStatuses.Any())
-        //    {
-        //        var list = new[]
-        //        {
-        //            new EmployeeLoanStatus { Code = "I", Name = "Inactive", Description = "Inactive" },
-        //            new EmployeeLoanStatus { Code = "A", Name = "Active", Description = "Active" },
-        //            new EmployeeLoanStatus { Code = "D", Name = "Done", Description = "Done" }
-        //        };
-        //        await context.EmployeeLoanStatuses.AddRangeAsync(list);
-        //    }
-        //}
+        private static async Task SeedLoanStatuses(ApplicationDbContext context)
+        {
+            if (!context.EmployeeLoanStatuses.Any())
+            {
+                var list = new[]
+                {
+                    new EmployeeLoanStatus(Guid.NewGuid(), "Inactive", "I", "Inactive"),
+                    new EmployeeLoanStatus(Guid.NewGuid(), "Active", "A", "Active"),
+                    new EmployeeLoanStatus(Guid.NewGuid(), "Done", "D", "Done")
+                };
+                await context.EmployeeLoanStatuses.AddRangeAsync(list);
+            }
+        }
     }
 }

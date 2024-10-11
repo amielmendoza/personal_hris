@@ -13,7 +13,7 @@ namespace HRIS.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public async static Task<IServiceCollection> AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
@@ -55,6 +55,29 @@ namespace HRIS.Infrastructure
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
                 };
             });
+
+            using (var scope = services.BuildServiceProvider().CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+                var pendingMigrations = dbContext.Database.GetPendingMigrations();
+                if (pendingMigrations.Any())
+                {
+                    dbContext.Database.Migrate();
+
+                    Console.WriteLine("Applied pending migrations.");
+                }
+                else
+                {
+                    Console.WriteLine("No pending migrations to apply.");
+                }
+
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
+                await ApplicationDbContextSeed.SeedReferenceDataAsync(dbContext);
+            }
 
             return services;
         }

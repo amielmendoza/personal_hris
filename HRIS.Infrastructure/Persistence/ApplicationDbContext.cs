@@ -26,6 +26,15 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicatio
     public DbSet<User> Users { get; set; }
     public DbSet<Employee> Employees { get; set; }
 
+    public DbSet<EmployeeStatus> EmployeeStatuses { get; set; }
+    public DbSet<EmployeeLeaveType> EmployeeLeaveTypes { get; set; }
+    public DbSet<EmployeeLeaveStatus> EmployeeLeaveStatuses { get; set; }
+    public DbSet<EmployeeLoanType> EmployeeLoanTypes { get; set; }
+    public DbSet<EmployeeLoanStatus> EmployeeLoanStatuses { get; set; }
+    public DbSet<Site> Sites { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<ContractEndReason> ContractEndReasons { get; set; }
+
     public async Task<IDbContextTransaction> BeginTransaction(CancellationToken cancellationToken)
     {
         return await Database.BeginTransactionAsync(cancellationToken);
