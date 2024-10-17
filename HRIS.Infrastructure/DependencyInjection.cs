@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using HRIS.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using HRIS.Infrastructure.Authentication;
+using HRIS.Domain.Interfaces;
+using HRIS.Infrastructure.Repositories;
 
 namespace HRIS.Infrastructure
 {
@@ -16,6 +18,9 @@ namespace HRIS.Infrastructure
         public async static Task<IServiceCollection> AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // Add services to the container.
             services.AddDbContext<ApplicationDbContext>(options =>

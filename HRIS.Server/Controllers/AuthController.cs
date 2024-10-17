@@ -10,7 +10,7 @@ namespace HRIS.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AuthController : ControllerBase
+    public class AuthController : ApiControllerBase
     {
         private readonly ILogger<AuthController> _logger;
         private readonly UserManager<IdentityUser> _userManager;

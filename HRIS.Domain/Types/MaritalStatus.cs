@@ -1,6 +1,6 @@
 ﻿namespace HRIS.Domain.Types
 {
-    public enum MaritalStatusType
+    public enum MaritalStatus
     {
         Single,
         Married

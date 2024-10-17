@@ -1,18 +1,15 @@
+using HRIS.Application.Employees.Queries;
+using HRIS.Application.Employees.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace HRIS.Server.Controllers
 {
     [ApiController]
     [Authorize]
     [Route("[controller]")]
-    public class EmployeeController : ControllerBase
+    public class EmployeeController : ApiControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -31,10 +28,9 @@ namespace HRIS.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetEmployees() {
-            return Ok(Summaries);
+        public async Task<ActionResult<List<EmployeeViewModel>>> GetEmployeeList([FromQuery] GetEmployeeListQuery query)
+        {
+            return await Mediator.Send(query);
         }
     }
-
-    
 }

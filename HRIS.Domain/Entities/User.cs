@@ -5,37 +5,51 @@ using System.ComponentModel.DataAnnotations;
 namespace HRIS.Domain.Entities;
 public record User : AuditableEntity
 {
-    [Key]
-    public Guid Id { get; set; }
-    [Required]
-    public string FirstName { get; set; }
+    public Guid Id { get; private set; }
+    public string FirstName { get; private set; }
+    public string MiddleName { get; private set; }
+    public string LastName { get; private set; }
+    public string MotherMaidenName { get; private set; }
+    public string Extension { get; private set; }
+    public DateTime BirthDate { get; private set; }
+    public string BirthPlace { get; private set; }
+    public string Address { get; private set; }
+    public string ContactNo { get; private set; }
+    public string Email { get; private set; }
+    public Gender Gender { get; private set; }
+    public MaritalStatus MaritalStatus { get; private set; }
+    public string EmergencyContact { get; private set; }
+    public string EmergencyContactNo { get; private set; }
+    public string PasswordHash { get; private set; }
 
-    public string MiddleName { get; set; }
-    [Required]
-    public string LastName { get; set; }
+    public Employee Employee { get; private set; }
 
-    public string MotherMaidenName { get; set; }
-
-    public string Extension { get; set; }
-    [Required]
-    public DateTime BirthDate { get; set; }
-    public string BirthPlace { get; set; }
-    [Required]
-    public string Address { get; set; }
-    [Required]
-    public string ContactNo { get; set; }
-    [Required]
-    public string Email { get; set; }
-    [Required]
-    public GenderType Gender { get; set; }
-    [Required]
-    public MaritalStatusType MaritalStatus { get; set; }
-    [Required]
-    public string EmergencyContact { get; set; }
-    [Required]
-    public string EmergencyContactNo { get; set; }
-    [Required]
-    public string PasswordHash { get; set; }
-
-    public Employee Employee { get; init; }
+    public User(Guid id, string firstName, string middleName, string lastName, string motherMaidenName, string extension, DateTime birthDate,
+        string birthPlace,
+        string address,
+        string contactNo,
+        string email,
+        Gender gender,
+        MaritalStatus maritalStatus,
+        string emergencyContact,
+        string emergencyContactNo,
+        string passwordHash)
+    {
+        Id = id;
+        FirstName = firstName;
+        MiddleName = middleName;
+        LastName = lastName;
+        MotherMaidenName = motherMaidenName;
+        Extension = extension;
+        BirthDate = birthDate;
+        BirthPlace = birthPlace;
+        Address = address;
+        ContactNo = contactNo;
+        Email = email;
+        Gender = gender;
+        MaritalStatus = maritalStatus;
+        EmergencyContact = emergencyContact;
+        EmergencyContactNo = emergencyContactNo;
+        PasswordHash = passwordHash;
+    }
 }

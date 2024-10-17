@@ -17,40 +17,40 @@ public record Employee : AuditableEntity
         //Leaves = new HashSet<EmployeeLeave>();
     }
     [Key]
-    public Guid Id { get; set; }
+    public Guid Id { get; private set; }
 
     [Required]
-    public Guid UserId { get; init; }
+    public Guid UserId { get; private set; }
 
     [ForeignKey("UserId")]
-    public required User User { get; init; }
+    public User User { get; private set; }
     [Required]
-    public string EmployeeNo { get; set; }
+    public string EmployeeNo { get; private set; }
     [Required]
-    public DateTime HireDate { get; set; }
+    public DateTime HireDate { get; private set; }
     [Required]
-    public string Position { get; set; }
-    public decimal? DailyRate { get; set; }
-    public decimal? MonthlyRate { get; set; }
-    public decimal? Allowance { get; set; }
-    public string SSS { get; set; }
-    public string TIN { get; set; }
-    public string PHIC { get; set; }
-    public string HDMF { get; set; }
-    public string BirthCertificate { get; set; }
-    public string BankAccountNumber { get; set; }
-    public bool Insurance { get; set; }
-    public DateTime? NBIClearanceExpiration { get; set; }
-    public DateTime? BrgyClearanceIssueDate { get; set; }
-    public DateTime? PoliceClearanceIssueDate { get; set; }
-    public DateTime? MedCertIssueDate { get; set; }
-    public DateTime? SwabTestResultDate { get; set; }
-    public int NoOfDependents { get; set; }
-    public DateTime? ContractEndDate { get; set; }
+    public string Position { get; private set; }
+    public decimal? DailyRate { get; private set; }
+    public decimal? MonthlyRate { get; private set; }
+    public decimal? Allowance { get; private set; }
+    public string SSS { get; private set; }
+    public string TIN { get; private set; }
+    public string PHIC { get; private set; }
+    public string HDMF { get; private set; }
+    public string BirthCertificate { get; private set; }
+    public string BankAccountNumber { get; private set; }
+    public bool Insurance { get; private set; }
+    public DateTime? NBIClearanceExpiration { get; private set; }
+    public DateTime? BrgyClearanceIssueDate { get; private set; }
+    public DateTime? PoliceClearanceIssueDate { get; private set; }
+    public DateTime? MedCertIssueDate { get; private set; }
+    public DateTime? SwabTestResultDate { get; private set; }
+    public int NoOfDependents { get; private set; }
+    public DateTime? ContractEndDate { get; private set; }
    
-    public string Trainings { get; set; }
-    public string Remarks { get; set; }
-    public string Status { get; set; }
+    public string Trainings { get; private set; }
+    public string Remarks { get; private set; }
+    public string Status { get; private set; }
     public bool IsComplete
     {
         get
@@ -74,29 +74,37 @@ public record Employee : AuditableEntity
     public Guid EmployeeStatusId { get; private set; }
     public EmployeeStatus EmployeeStatus { get; private set; }
 
-    //public bool IsActive
-    //{
-    //    get
-    //    {
-    //        return this.EmploymentStatus.Name != "Terminated" &&
-    //            this.EmploymentStatus.Name != "Resigned" &&
-    //            this.EmploymentStatus.Name != "Retired" &&
-    //            this.EmploymentStatus.Name != "Deceased" &&
-    //            this.EmploymentStatus.Name != "AWOL";
-    //    }
-    //}
-    //public Person PersonalDetail { get; set; }
-    //public Employee Manager { get; set; }
-    //public Guid? EmploymentStatusId { get; set; }
-    //public EmploymentStatus EmploymentStatus { get; set; }
-    //public Guid? SiteId { get; set; }
-    //public Site Site { get; set; }
-    //public Guid? DepartmentId { get; set; }
-    //public Department Department { get; set; }
-    //public ICollection<Employee> DirectReports { get; private set; }
-    //public ICollection<EmployeeCertification> Certifications { get; private set; }
-    //public EmployeeLeaveCredit LeaveCredit { get; private set; }
-    //public ICollection<EmployeeLeave> Leaves { get; private set; }
-    //public ICollection<Adjustment> Adjustments { get; private set; }
-    //public ICollection<PayrollComputation> Computations { get; private set; }
+    public Employee(Guid id, Guid userId, string employeeNo, DateTime hireDate, string position, string status, decimal? dailyRate, decimal? monthlyRate, decimal? allowance, string sss, string tin, string phic, string hdmf, string birthCertificate, string bankAccountNumber, bool insurance, DateTime? nBIClearanceExpiration, DateTime? brgyClearanceIssueDate, DateTime? policeClearanceIssueDate, DateTime? medCertIssueDate, DateTime? swabTestResultDate, int noOfDependents, DateTime? contractEndDate, Guid? contractEndReasonId, string trainings, string remarks, Guid siteId, Guid? departmentId, Guid employeeStatusId)
+    {
+        Id = id;
+        UserId = userId;
+        EmployeeNo = employeeNo;
+        HireDate = hireDate;
+        Position = position;
+        Status = status;
+        DailyRate = dailyRate;
+        MonthlyRate = monthlyRate;
+        Allowance = allowance;
+        SSS = sss;
+        TIN = tin;
+        PHIC = phic;
+        HDMF = hdmf;
+        BirthCertificate = birthCertificate;
+        BankAccountNumber = bankAccountNumber;
+        Insurance = insurance;
+        NBIClearanceExpiration = nBIClearanceExpiration;
+        BrgyClearanceIssueDate = brgyClearanceIssueDate;
+        PoliceClearanceIssueDate = policeClearanceIssueDate;
+        MedCertIssueDate = medCertIssueDate;
+        SwabTestResultDate = swabTestResultDate;
+        NoOfDependents = noOfDependents;
+        ContractEndDate = contractEndDate;
+        ContractEndReasonId = contractEndReasonId;
+        Trainings = trainings;
+        Remarks = remarks;
+        SiteId = siteId;
+        DepartmentId = departmentId;
+        EmployeeStatusId = employeeStatusId;
+    }
+
 }

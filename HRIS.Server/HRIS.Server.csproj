@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -18,12 +18,10 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\AdjustmentController.cs" />
-    <Compile Remove="Controllers\ApiControllerBase.cs" />
     <Compile Remove="Controllers\Auth2Controller.cs" />
     <Compile Remove="Controllers\HolidayController.cs" />
     <Compile Remove="Controllers\LeaveController.cs" />
     <Compile Remove="Controllers\LoanController.cs" />
-    <Compile Remove="Controllers\LookupController.cs" />
     <Compile Remove="Controllers\PayrollController.cs" />
     <Compile Remove="Controllers\ProfileController.cs" />
     <Compile Remove="Controllers\UserController.cs" />
