@@ -1,8 +1,10 @@
+using HRIS.Application.Employees.Commands;
 using HRIS.Application.Employees.Queries;
 using HRIS.Application.Employees.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace HRIS.Server.Controllers
 {
@@ -30,7 +32,15 @@ namespace HRIS.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<List<EmployeeViewModel>>> GetEmployeeList([FromQuery] GetEmployeeListQuery query)
         {
-            return await Mediator.Send(query);
+            var employees = await Mediator.Send(query);
+            return employees;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Guid>> CreateEmployee([FromBody] CreateEmployeeCommand command)
+        {
+            var employee = await Mediator.Send(command);
+            return employee;
         }
     }
 }

@@ -5,7 +5,10 @@ using System.ComponentModel.DataAnnotations;
 namespace HRIS.Domain.Entities;
 public record User : AuditableEntity
 {
-    public Guid Id { get; private set; }
+    public User()
+    {
+        
+    }
     public string FirstName { get; private set; }
     public string MiddleName { get; private set; }
     public string LastName { get; private set; }

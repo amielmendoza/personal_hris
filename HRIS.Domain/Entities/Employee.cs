@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,23 +13,12 @@ public record Employee : AuditableEntity
 {
     public Employee()
     {
-        //DirectReports = new HashSet<Employee>();
-        //Certifications = new HashSet<EmployeeCertification>();
-        //Leaves = new HashSet<EmployeeLeave>();
+        
     }
-    [Key]
-    public Guid Id { get; private set; }
-
-    [Required]
     public Guid UserId { get; private set; }
-
-    [ForeignKey("UserId")]
     public User User { get; private set; }
-    [Required]
     public string EmployeeNo { get; private set; }
-    [Required]
     public DateTime HireDate { get; private set; }
-    [Required]
     public string Position { get; private set; }
     public decimal? DailyRate { get; private set; }
     public decimal? MonthlyRate { get; private set; }
@@ -106,5 +96,4 @@ public record Employee : AuditableEntity
         DepartmentId = departmentId;
         EmployeeStatusId = employeeStatusId;
     }
-
 }
