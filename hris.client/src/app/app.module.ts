@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { SpinnerModule } from './components/spinner/spinner.module';
+import { ToastNotificationModule } from './components/toast-notification/toast-notification.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SpinnerModule } from './components/spinner/spinner.module';
     AppRoutingModule,
     LoginModule,
     DashboardModule,
-    SpinnerModule
+    SpinnerModule,
+    ToastNotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

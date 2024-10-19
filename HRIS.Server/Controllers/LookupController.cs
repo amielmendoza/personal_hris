@@ -1,3 +1,5 @@
+using HRIS.Application.Employees.Queries;
+using HRIS.Application.Lookups.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -29,8 +31,9 @@ namespace HRIS.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetEmployees() {
-            return Ok(Summaries);
+        public async Task<ActionResult<EmployeeLookupsViewModel>> GetLookups() {
+            var employees = await Mediator.Send(new GetLookupsQuery());
+            return employees;
         }
     }
 

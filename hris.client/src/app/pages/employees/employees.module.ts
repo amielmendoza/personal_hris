@@ -8,10 +8,13 @@ import { EmployeeFormComponent } from './form/employee.form/employee.form.compon
 import { EmployeeListComponent } from './list/employee.list.component';
 import { StepperModule } from '../../components/stepper/stepper.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LookupApiService } from '../../services/lookup-api.service';
+import { ToastNotificationModule } from '../../components/toast-notification/toast-notification.module';
 
 @NgModule({
   declarations: [EmployeesComponent, EmployeeFormComponent, EmployeeListComponent],
   exports: [EmployeesComponent, EmployeeFormComponent, EmployeeListComponent],
   imports: [CommonModule, FormsModule, BrowserModule, RouterModule, StepperModule, ReactiveFormsModule, NgbModule],
+  providers: [LookupApiService]
 })
 export class EmployeesModule {}

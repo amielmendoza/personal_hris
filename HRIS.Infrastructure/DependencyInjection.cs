@@ -31,6 +31,14 @@ namespace HRIS.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IContractEndReasonRepository, ContractEndReasonRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeLeaveStatusRepository, EmployeeLeaveStatusRepository>();
+            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            services.AddScoped<IEmployeeLoanStatusRepository, EmployeeLoanStatusRepository>();
+            services.AddScoped<IEmployeeLoanTypeRepository, EmployeeLoanTypeRepository>();
+            services.AddScoped<IEmployeeStatusRepository, EmployeeStatusRepository>();
+            services.AddScoped<ISiteRepository, SiteRepository>();
 
 
             services.AddAuthorizationCore();

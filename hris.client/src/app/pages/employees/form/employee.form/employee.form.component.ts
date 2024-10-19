@@ -7,6 +7,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { forkJoin, map, Observable } from 'rxjs';
+import { LookupApiService } from '../../../../services/lookup-api.service';
+import { SpinnerService } from '../../../../services/spinner.service';
+import { ToastNotificationService } from '../../../../services/toast-notification.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -251,7 +255,7 @@ export class EmployeeFormComponent implements OnInit {
         {
           name: 'birthCertificate',
           label: 'Birth Certificate',
-          type: 'checkbox',
+          type: 'date',
           validators: ['', Validators.required],
           col: 2,
         },
@@ -356,11 +360,57 @@ export class EmployeeFormComponent implements OnInit {
       ],
     },
   ];
+  formInitialized = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private lookupApiService: LookupApiService, private spinnerService: SpinnerService,
+    private toastNotificationService: ToastNotificationService
+  ) {}
 
-  ngOnInit(): void {
-    this.initForm();
+  async ngOnInit(): Promise<void> {
+    try {
+      this.spinnerService.show();
+      await this.loadSelectOptions();
+      this.initForm();
+       this.formInitialized = true; // Add this line
+      this.spinnerService.hide();
+    } catch (error) {
+      this.spinnerService.hide();
+      console.error('Error loading form options:', error);
+      // Handle error (e.g., show error message to user)
+      this.toastNotificationService.showError('Failed to load form options. Please try again.', 5000);
+    }
+  }
+
+  async loadSelectOptions(): Promise<void> {
+    const selectFields = this.formSteps.flatMap(step =>
+      step.fields.filter(field => field.type === 'select')
+    );
+
+    this.lookupApiService.getAllLookupData().subscribe((allLookupData) => {
+      if (allLookupData) {
+        for (const field of selectFields) {
+          if (allLookupData[field.name]) {
+            this.updateFieldOptions(field.name, allLookupData[field.name]);
+          } else {
+            console.warn(`No lookup data found for field: ${field.name}`);
+          }
+        }
+      }
+    },
+    (error) => {
+      console.error('Error loading form options:', error);
+      this.toastNotificationService.showError('Failed to load form options. Please try again.', 5000);
+    }
+  );
+  }
+
+  updateFieldOptions(fieldName: string, options: string[]): void {
+    this.formSteps.forEach(step => {
+      const field = step.fields.find(f => f.name === fieldName);
+      if (field && field.type === 'select') {
+        field.options = options;
+      }
+    });
   }
 
   initForm(): void {
@@ -388,6 +438,7 @@ export class EmployeeFormComponent implements OnInit {
         this.currentStep++;
       } else {
         this.markCurrentStepAsTouched();
+        this.toastNotificationService.showError('Please fill in all required fields. Please try again.', 5000);
       }
     }
   }
@@ -407,9 +458,17 @@ export class EmployeeFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.employeeForm.valid) {
-      console.log('Form submitted:', this.employeeForm.value);
+      try {
+        console.log('Form submitted successfully:', this.employeeForm.value);
+        this.toastNotificationService.showSuccess('Employee form submitted successfully!', 5000);
+        this.exitForm();
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        this.toastNotificationService.showError('Failed to submit form. Please try again.', 5000);
+      }
     } else {
       this.employeeForm.markAllAsTouched();
+      this.toastNotificationService.showError('Please fill in all required fields.', 5000);
     }
   }
 
