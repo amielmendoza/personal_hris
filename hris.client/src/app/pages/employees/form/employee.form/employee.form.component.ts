@@ -158,7 +158,7 @@ export class EmployeeFormComponent implements OnInit {
           col: 2,
         },
         {
-          name: 'department',
+          name: 'departments',
           label: 'Department',
           type: 'select',
           options: ['HR', 'IT', 'Sales'],
@@ -388,11 +388,12 @@ export class EmployeeFormComponent implements OnInit {
 
     this.lookupApiService.getAllLookupData().subscribe((allLookupData) => {
       if (allLookupData) {
-        for (const field of selectFields) {
-          if (allLookupData[field.name]) {
-            this.updateFieldOptions(field.name, allLookupData[field.name]);
+        const fields = Object.keys(allLookupData);
+        for (const field of fields) {
+          if (allLookupData[field]) {
+            this.updateFieldOptions(field, allLookupData[field]);
           } else {
-            console.warn(`No lookup data found for field: ${field.name}`);
+            console.warn(`No lookup data found for field: ${field}`);
           }
         }
       }
